@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.dale.demo">
+
+    <application
+        android:name="com.chad.baserecyclerviewadapterhelper.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Main2Activity">
+<!--
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.WelcomeActivity">
+-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.HeaderAndFooterUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.SectionUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.ChooseMultipleItemUseTypeActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.MultipleItemUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.MultipleItemRvAdapterUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.EmptyViewUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.ItemDragAndSwipeUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.ExpandableUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.DataBindingUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.ItemClickActivity"/>
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.base.BaseActivity"/>
+        <activity
+            android:name="com.chad.baserecyclerviewadapterhelper.HomeActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.UpFetchUseActivity" />
+        <activity android:name="com.chad.baserecyclerviewadapterhelper.SectionMultipleItemUseActivity" />
+    </application>
+
+</manifest>
