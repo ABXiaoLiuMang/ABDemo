@@ -2,5 +2,17 @@
     <string name="app_name">DaleDemo</string>
     <string name="network_err">Simulation network error</string>
     <string name="empty_network_error">Network error, Click Retry</string>
-    <string name="empty_no_data">There is no data, Click Retry</string>
+    <string name="empty_no_data" translatable="false">There is no data, Click Retry</string>
+
+
+    <declare-styleable name="mmAlertDialog">
+        <attr name="android:layout"/>
+        <attr format="reference" name="buttonPanelSideLayout"/>
+        <attr format="reference" name="listLayout"/>
+        <attr format="reference" name="multiChoiceItemLayout"/>
+        <attr format="reference" name="singleChoiceItemLayout"/>
+        <attr format="reference" name="listItemLayout"/>
+        <attr format="boolean" name="showTitle"/>
+        <attr format="dimension" name="buttonIconDimen"/>
+    </declare-styleable>
 </resources>

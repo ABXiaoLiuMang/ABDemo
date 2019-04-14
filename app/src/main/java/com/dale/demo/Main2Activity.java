@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -23,11 +25,23 @@ public class Main2Activity extends AppCompatActivity {
     SmartRefreshLayout refreshLayout;
     RecyclerView recyclerview;
     MyAdapter adapter;
+    String bugTest ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
+
+        findViewById(R.id.btn_bug).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bugTest = bugTest.substring(0,10);
+                Log.d("Dream",bugTest);
+            }
+        });
+
         recyclerview = findViewById(R.id.recyclerview);
         refreshLayout = findViewById(R.id.refreshLayout);
         //刷新的监听事件

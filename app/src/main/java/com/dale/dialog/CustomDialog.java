@@ -2,6 +2,9 @@ package com.dale.dialog;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.Window;
@@ -28,7 +31,7 @@ public class CustomDialog implements BaseDialog {
     }
 
     private void onCreate(){
-
+        AttributeSet
         rootView = builder.context.findViewById(android.R.id.content);
         contentView = new LinearLayout(builder.context);
         contentView.setOrientation(LinearLayout.VERTICAL);
@@ -67,7 +70,12 @@ public class CustomDialog implements BaseDialog {
         public BaseFactory baseFactory;
 
         public Builder(Activity activity) {
+            this(activity,0);
+        }
+
+        public Builder(Activity activity,int style) {
             this.context = activity;
+            context.getTheme().obtainStyledAttributes(R.styleable.PersonBindView);
             initDefaultView();
         }
 

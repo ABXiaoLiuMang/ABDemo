@@ -8,12 +8,13 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 
 /**
  * 文件描述:
  * 作者Dale:2019/3/18
  */
-public class Progressbar extends View {
+public class MyProgressbar extends ProgressBar {
 
     private Paint paint = new Paint(); // 绘制背景灰色线条画笔
     private Paint paintText = new Paint(); // 绘制下载进度画笔
@@ -29,17 +30,17 @@ public class Progressbar extends View {
     private int bgColor; // 背景颜色
     private int proColor; // 进度颜色
 
-    public Progressbar(Context context) {
+    public MyProgressbar(Context context) {
         this(context, null);
     }
 
-    public Progressbar(Context context, AttributeSet attribute) {
+    public MyProgressbar(Context context, AttributeSet attribute) {
         this(context, attribute, 0);
     }
 
-    public Progressbar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MyProgressbar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray t = getContext().obtainStyledAttributes(attrs, R.styleable.ProgressBar);
+        TypedArray t = getContext().obtainStyledAttributes(attrs, R.styleable.mmAlertDialog);
         textSize = (int) t.getDimension(R.styleable.ProgressBar_textsize, 36);
         barHeight = (int) t.getDimension(R.styleable.ProgressBar_barHeight, 28);
         padding = (int) t.getDimension(R.styleable.ProgressBar_padding, 5);

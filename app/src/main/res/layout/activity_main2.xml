@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".Main2Activity">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:text="bug"
+        android:id="@+id/btn_bug"
+        />
+
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
