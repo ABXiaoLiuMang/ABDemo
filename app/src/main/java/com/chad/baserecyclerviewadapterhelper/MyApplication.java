@@ -16,6 +16,7 @@ package com.chad.baserecyclerviewadapterhelper;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.chad.baserecyclerviewadapterhelper.util.Utils;
 import com.dale.demo.R;
@@ -27,7 +28,8 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.bugly.Bugly;
+import com.tencent.bugly.beta.Beta;
 
 /**
  * 文 件 名: MyApplication
@@ -73,11 +75,20 @@ public class MyApplication extends Application {
         super.onCreate();
         appContext = this;
         Utils.init(this);
-//        第三个参数为SDK调试模式开关，调试模式的行为特性如下：
-//        输出详细的Bugly SDK的Log
-//        每一条Crash都会被立即上报
-//                自定义日志将会在Logcat中输出
-//        建议在测试阶段建议设置成true，发布时设置为false。
-        CrashReport.initCrashReport(getApplicationContext(), "04de93395e", true);
+        Bugly.setIsDevelopmentDevice(this, true);//设置为开发设备 注意这个必须在初始化Bugly之前设置为开发设备
+        Bugly.init(this,"04de93395e",true);
     }
+
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+        // 安装热修复 tinker
+        Beta.installTinker();
+    }
+
+//    @TargetApi(9)
+//    protected void setStrictMode() {
+//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
+//        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build());
+//    }
 }
