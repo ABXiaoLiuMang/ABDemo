@@ -8,7 +8,6 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * @author : Andrew
  * @createTime ：2019/3/16
  * @function description : edit text 结果计算
  */

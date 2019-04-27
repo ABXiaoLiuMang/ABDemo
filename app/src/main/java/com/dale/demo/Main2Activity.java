@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.functions.Consumer;
+import okhttp3.OkHttpClient;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -41,6 +42,8 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 //        bugTest ="";
+           int s =10_000;
+        OkHttpClient d;
         RxPermissions rxPermissions = new RxPermissions(this);
         rxPermissions.request(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
