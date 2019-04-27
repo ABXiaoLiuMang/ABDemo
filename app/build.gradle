@@ -95,12 +95,10 @@ dependencies {
     implementation 'com.kyleduo.switchbutton:library:2.0.0'
     implementation project(':ABRefrshView')
     implementation 'com.android.support:multidex:1.0.3'
-
     implementation 'com.tencent.bugly:crashreport_upgrade:1.3.8'
-//    implementation 'com.tencent.bugly:crashreport:2.8.6'//以上面二选一，包括热更新用上面有个
+    //    implementation 'com.tencent.bugly:crashreport:2.8.6'//以上面二选一，包括热更新用上面有个
     implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
     implementation 'com.tencent.tinker:tinker-android-lib:1.9.9'
-
     //允许权限用到的一个
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
@@ -114,6 +112,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation project(':ABSupport')
 }
 
 // 依赖插件脚本
