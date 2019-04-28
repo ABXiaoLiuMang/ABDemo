@@ -112,7 +112,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'cn.bingoogolapple:bga-photopicker:1.2.8@aar'//https://github.com/bingoogolapple/BGAPhotoPicker-Android
+    implementation 'cn.bingoogolapple:bga-baseadapter:1.2.9@aar'
+    implementation 'com.google.zxing:core:3.3.3'
     implementation project(':ABSupport')
+    implementation project(':ABZxing')
 }
 
 // 依赖插件脚本

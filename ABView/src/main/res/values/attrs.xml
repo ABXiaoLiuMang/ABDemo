@@ -69,4 +69,11 @@
         <attr name="etCode" format="reference|string"/>
     </declare-styleable>
 
+    <declare-styleable name="BGAFlowLayout">
+        <attr name="fl_horizontalChildGap" format="dimension" />
+        <attr name="fl_verticalChildGap" format="dimension" />
+        <attr name="fl_isDistributionWhiteSpacing" format="boolean" />
+    </declare-styleable>
+
+
 </resources>
