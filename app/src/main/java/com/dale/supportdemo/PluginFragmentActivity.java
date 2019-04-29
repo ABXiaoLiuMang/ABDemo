@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.dale.demo.R;
 import com.me.yokeyword.fragmentation.ISupportFragment;
 
 /**
@@ -63,5 +64,11 @@ public class PluginFragmentActivity extends BaseSupportActivity {
     protected void onStop() {
         super.onStop();
         Log.d("Dream","PluginFragmentActivity onStop");
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+//        overridePendingTransition(R.anim.h_fragment_pop_enter, R.anim.h_fragment_exit);
     }
 }

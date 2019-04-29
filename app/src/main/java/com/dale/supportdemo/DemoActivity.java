@@ -1,5 +1,6 @@
 package com.dale.supportdemo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -42,6 +43,7 @@ public class DemoActivity extends BaseSupportActivity {
         mIntent.putExtra(KEY_FRAGMENT,toClass.getCanonicalName());
         mIntent.setClass(DemoActivity.this,PluginFragmentActivity.class);
         startActivity(mIntent);
+//        overridePendingTransition(R.anim.h_fragment_enter, R.anim.h_fragment_pop_exit);
     }
 
 

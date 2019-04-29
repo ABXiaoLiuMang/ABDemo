@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * 方法描述:本身Yabo框架含有 DateUtl，这里是补充方法
+ * 方法描述: DateUtl，这里是补充方法
  **/
 
 public class DateUtil {
