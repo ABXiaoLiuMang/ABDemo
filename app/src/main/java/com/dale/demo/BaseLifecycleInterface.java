@@ -5,7 +5,6 @@ import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.OnLifecycleEvent;
 
-import org.jetbrains.annotations.NotNull;
 
 /**
  * 文件描述:
@@ -14,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 public interface BaseLifecycleInterface extends LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    void onStop(@NotNull LifecycleOwner owner);
+    void onStop(LifecycleOwner owner);
 
 
 }

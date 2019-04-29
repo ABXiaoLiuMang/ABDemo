@@ -1,0 +1,55 @@
+ext {
+
+    android = [
+            compileSdkVersion: 28, //编译sdk版本
+            androidLibVersion: "28.0.0", //android官方库的版本
+            minSdkVersion    : 19,  //app最小适配系统版本
+            targetSdkVersion : 28,  //app最高兼容系统版本
+//            versionCode      : 100, //app版本号
+//            versionName      : "1.0.0",  //app版本号
+    ]
+
+    dependencies = [
+            junit                  : 'junit:junit:4.12',            //单元测试包
+            appcompat_v7           : 'com.android.support:appcompat-v7:' + android.androidLibVersion,   //官方V7包
+            cardview_v7            : 'com.android.support:cardview-v7:' + android.androidLibVersion,    //官方cardView包
+            design                 : 'com.android.support:design:' + android.androidLibVersion,         //官方MD设计包
+            recyclerview           : 'com.android.support:recyclerview-v7:' + android.androidLibVersion, //recyclerView包
+            support_annotations    : 'com.android.support:support-annotations:' + android.androidLibVersion, //注解包
+            constraint_layout      : 'com.android.support.constraint:constraint-layout:1.1.3',          //constraintlayout包
+            test_runner            : 'com.android.support.test:runner:1.0.2',
+            espresso_core          : 'com.android.support.test.espresso:espresso-core:3.0.2',
+            multidex               : 'com.android.support:multidex:1.0.3',      //方法数超限,dex分包库
+
+            //热更新和日志上报
+            crashreport_upgrade    : 'com.tencent.bugly:crashreport_upgrade:1.3.8',//日志上报
+            nativecrashreport      : 'com.tencent.bugly:nativecrashreport:3.6.0',
+            tinker                 : 'com.tencent.tinker:tinker-android-lib:1.9.9',
+
+            //常用工具类
+            glide_transformations  : 'jp.wasabeef:glide-transformations:2.0.1',  //glide图片加载库的图片转换库
+            glide_compiler         : 'com.github.bumptech.glide:compiler:4.8.0',  //glide图片加载库的注解编译库
+            glide                  : 'com.github.bumptech.glide:glide:4.9.0',  //glide图片加载库的注解编译库
+            rxjava                 : 'io.reactivex.rxjava2:rxjava:2.2.3',
+            rxandroid              : 'io.reactivex.rxjava2:rxandroid:2.1.0',
+            converter_gson         : 'com.squareup.retrofit2:converter-gson:2.4.0',
+            retrofit               : 'com.squareup.retrofit2:retrofit:2.4.0',
+            adapter_rxjava2        : 'com.squareup.retrofit2:adapter-rxjava2:2.4.0',
+            okhttp                 : 'com.squareup.okhttp3:okhttp:3.11.0',
+            logging_interceptor    : 'com.squareup.okhttp3:logging-interceptor:3.10.0',
+            butterknife            : 'com.jakewharton:butterknife:8.8.1',
+            butterknife_compiler   : 'com.jakewharton:butterknife-compiler:8.8.1',
+            rxpermissions2         : 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar',
+
+
+            //第三方
+            material_spinner       : 'com.jaredrummler:material-spinner:1.3.1',
+            switchbutton           : 'com.kyleduo.switchbutton:library:2.0.0',
+            photopicker            : 'cn.bingoogolapple:bga-photopicker:1.2.8@aar',
+            bga_baseadapter        : 'cn.bingoogolapple:bga-baseadapter:1.2.9@aar',
+            zxing                  : 'com.google.zxing:core:3.3.3',
+            PhotoView              : 'com.github.chrisbanes:PhotoView:2.0.0', //    https://github.com/chrisbanes/PhotoView
+            PickerView             : 'com.contrarywind:Android-PickerView:4.1.3',//   https://github.com/Bigkoo/Android-PickerView
+            MagicIndicator         : 'com.github.hackware1993:MagicIndicator:1.5.0',
+    ]
+}

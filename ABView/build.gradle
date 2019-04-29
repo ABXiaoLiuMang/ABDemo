@@ -1,16 +1,16 @@
 apply plugin: 'com.android.library'
 
+def customizeConfig = rootProject.ext.android //android配置
+def rootDependencies = rootProject.ext.dependencies //库依赖
+
 android {
-    compileSdkVersion 28
-
-
+    compileSdkVersion customizeConfig.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
+        minSdkVersion customizeConfig.minSdkVersion
+        targetSdkVersion customizeConfig.targetSdkVersion
+        versionCode appVersionCode as int
+        versionName appVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -27,13 +27,14 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
-    //    https://github.com/chrisbanes/PhotoView
-    implementation 'com.contrarywind:Android-PickerView:4.1.3'
-    // https://github.com/Bigkoo/Android-PickerView
-    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testImplementation rootDependencies["junit"]
+    androidTestImplementation rootDependencies["test_runner"]
+    androidTestImplementation rootDependencies["espresso_core"]
+    //系统库
+    implementation rootDependencies["appcompat_v7"]
+
+    implementation rootDependencies["PhotoView"]
+    implementation rootDependencies["PickerView"]
+    implementation rootDependencies["MagicIndicator"]
+
 }
