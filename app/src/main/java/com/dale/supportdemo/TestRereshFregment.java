@@ -5,11 +5,13 @@ import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.chad.baserecyclerviewadapterhelper.adapter.TestAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.cn.common.ui.ABRefreshBaseFragment;
+import com.cn.common.view.ABToast;
 import com.dale.demo.R;
 import com.dale.supportdemo.p.TestContract;
 import com.dale.supportdemo.p.TestPresenter;
@@ -111,5 +113,11 @@ public class TestRereshFregment extends ABRefreshBaseFragment<String, TestPresen
     @Override
     public void getBindTextVlaue(String text) {
         listAdapter.addData(getDatas());
+    }
+
+    @Override
+    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        String itemString = (String) adapter.getItem(position);
+        ABToast.show(itemString);
     }
 }

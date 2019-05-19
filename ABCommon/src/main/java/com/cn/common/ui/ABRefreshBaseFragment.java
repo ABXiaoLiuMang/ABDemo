@@ -13,7 +13,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
  * create on 2019/5/17
  * description:下拉刷新基类
  */
-public abstract class ABRefreshBaseFragment<T, P extends BasePresenter> extends BaseFragment implements OnRefreshListener, OnLoadMoreListener {
+public abstract class ABRefreshBaseFragment<T, P extends BasePresenter> extends BaseFragment implements OnRefreshListener, OnLoadMoreListener, BaseQuickAdapter.OnItemClickListener {
 
     protected BaseQuickAdapter<T, BaseViewHolder> listAdapter;
     protected SmartRefreshLayout refreshLayout;
@@ -53,6 +53,7 @@ public abstract class ABRefreshBaseFragment<T, P extends BasePresenter> extends 
         }
 
         listAdapter = getListAdapter();
+        listAdapter.setOnItemClickListener(this);
         recyclerview.setLayoutManager(getLayoutManager());
         RecyclerView.ItemDecoration itemDecoration = getItemDecoration();
         if (itemDecoration != null) {
