@@ -1,1 +1,1 @@
-include ':app', ':ABView', ':ABBaseAdapter', ':refresh-layout', ':ABRefrshView', ':ABSupport', ':ABZxing'
+include ':app', ':ABView', ':ABBaseAdapter', ':refresh-layout', ':ABRefrshView', ':ABSupport', ':ABZxing', ':ABCommon'

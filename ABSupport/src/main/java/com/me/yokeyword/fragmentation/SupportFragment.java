@@ -3,12 +3,15 @@ package com.me.yokeyword.fragmentation;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.animation.Animation;
 
+import com.me.yokeyword.R;
 import com.me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 import java.util.List;
@@ -23,6 +26,13 @@ import java.util.List;
 public class SupportFragment extends Fragment implements ISupportFragment {
     final SupportFragmentDelegate mDelegate = new SupportFragmentDelegate(this);
     protected FragmentActivity _mActivity;
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initBackView(view);
+    }
 
     @Override
     public SupportFragmentDelegate getSupportDelegate() {
@@ -214,7 +224,9 @@ public class SupportFragment extends Fragment implements ISupportFragment {
      */
     @Override
     public boolean onBackPressedSupport() {
-        return mDelegate.onBackPressedSupport();
+//        return mDelegate.onBackPressedSupport();
+        exitActivity();
+        return true;
     }
 
     /**
@@ -222,7 +234,7 @@ public class SupportFragment extends Fragment implements ISupportFragment {
      * <p>
      * Similar to {@link Activity#setResult(int, Intent)}
      *
-     * @see #startForResult(ISupportFragment, int)
+     * @see #startFragmentForResult(ISupportFragment, int)
      */
     @Override
     public void setFragmentResult(int resultCode, Bundle bundle) {
@@ -230,11 +242,11 @@ public class SupportFragment extends Fragment implements ISupportFragment {
     }
 
     /**
-     * 类似  {@link Activity#onActivityResult(int, int, Intent)}
+     * 类似  {Activity#onActivityResult(int, int, Intent)}
      * <p>
-     * Similar to {@link Activity#onActivityResult(int, int, Intent)}
+     * Similar to { Activity#onActivityResult(int, int, Intent)}
      *
-     * @see #startForResult(ISupportFragment, int)
+     * @see #startFragmentForResult(ISupportFragment, int)
      */
     @Override
     public void onFragmentResult(int requestCode, int resultCode, Bundle data) {
@@ -243,12 +255,12 @@ public class SupportFragment extends Fragment implements ISupportFragment {
 
     /**
      * 在start(TargetFragment,LaunchMode)时,启动模式为SingleTask/SingleTop, 回调TargetFragment的该方法
-     * 类似 {@link Activity#onNewIntent(Intent)}
+     * 类似 { Activity#onNewIntent(Intent)}
      * <p>
-     * Similar to {@link Activity#onNewIntent(Intent)}
+     * Similar to {Activity#onNewIntent(Intent)}
      *
      * @param args putNewBundle(Bundle newBundle)
-     * @see #start(ISupportFragment, int)
+     * @see #startFragment(ISupportFragment, int)
      */
     @Override
     public void onNewBundle(Bundle args) {
@@ -258,7 +270,7 @@ public class SupportFragment extends Fragment implements ISupportFragment {
     /**
      * 添加NewBundle,用于启动模式为SingleTask/SingleTop时
      *
-     * @see #start(ISupportFragment, int)
+     * @see #startFragment(ISupportFragment, int)
      */
     @Override
     public void putNewBundle(Bundle newBundle) {
@@ -329,21 +341,21 @@ public class SupportFragment extends Fragment implements ISupportFragment {
         mDelegate.showHideFragment(showFragment, hideFragment);
     }
 
-    public void start(ISupportFragment toFragment) {
+    public void startFragment(ISupportFragment toFragment) {
         mDelegate.start(toFragment);
     }
 
     /**
      * @param launchMode Similar to Activity's LaunchMode.
      */
-    public void start(final ISupportFragment toFragment, @LaunchMode int launchMode) {
+    public void startFragment(final ISupportFragment toFragment, @LaunchMode int launchMode) {
         mDelegate.start(toFragment, launchMode);
     }
 
     /**
      * Launch an fragment for which you would like a result when it poped.
      */
-    public void startForResult(ISupportFragment toFragment, int requestCode) {
+    public void startFragmentForResult(ISupportFragment toFragment, int requestCode) {
         mDelegate.startForResult(toFragment, requestCode);
     }
 
@@ -357,7 +369,7 @@ public class SupportFragment extends Fragment implements ISupportFragment {
     /**
      * @see #popTo(Class, boolean)
      * +
-     * @see #start(ISupportFragment)
+     * @see #startFragment(ISupportFragment)
      */
     public void startWithPopTo(ISupportFragment toFragment, Class<?> targetFragmentClass, boolean includeTargetFragment) {
         mDelegate.startWithPopTo(toFragment, targetFragmentClass, includeTargetFragment);
@@ -446,5 +458,41 @@ public class SupportFragment extends Fragment implements ISupportFragment {
      */
     public <T extends ISupportFragment> T findChildFragment(Class<T> fragmentClass) {
         return SupportHelper.findFragment(getChildFragmentManager(), fragmentClass);
+    }
+
+    /****************************************以下为处理back回退******************************************************/
+
+    private boolean isBackActivity;
+    protected View backView;
+    private void initBackView(View view){
+        backView = view.findViewById(R.id.backView);
+        if(backView != null){
+            backView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    exitActivity();
+                }
+            });
+        }
+    }
+
+    /**
+     * 是否是退出activity
+     * @param backActivity true 表示退出activity false 表示返回上一层fragment
+     */
+    public void setBackActivity(boolean backActivity) {
+        isBackActivity = backActivity;
+    }
+
+    private void exitActivity() {
+        if (isBackActivity) {
+            ActivityCompat.finishAfterTransition(getActivity());
+        } else {
+            finish();
+        }
+    }
+
+    private void finish(){
+        pop();
     }
 }

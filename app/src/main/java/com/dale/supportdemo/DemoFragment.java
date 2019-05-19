@@ -1,34 +1,29 @@
 package com.dale.supportdemo;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.cn.common.ui.BaseFragment;
+import com.cn.common.util.ABConfig;
 import com.dale.demo.R;
+import com.dale.supportdemo.p.TestContract;
+import com.dale.supportdemo.p.TestPresenter;
 
 /**
  * 文件描述:
  * 作者Dale:2019/4/28
  */
-public class DemoFragment extends  BaseSupportFragment{
+public class DemoFragment extends BaseFragment<TestPresenter> implements TestContract.IBindView{
 
-    View rootView;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.activity_demo,container,false);
-        return rootView;
+    protected int getLayoutId() {
+        return R.layout.activity_demo;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    protected void initViewsAndEvents() {
         rootView.findViewById(R.id.btn_demo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,4 +36,9 @@ public class DemoFragment extends  BaseSupportFragment{
         setBackActivity(true);
     }
 
+
+    @Override
+    public void getBindTextVlaue(String text) {
+        showProgressDialog(text+"-"+bundle.getString(ABConfig.KEY_TEXT));
+    }
 }

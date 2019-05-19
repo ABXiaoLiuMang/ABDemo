@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentationMagician;
 import android.view.MotionEvent;
 
-import com.me.yokeyword.fragmentation.anim.DefaultVerticalAnimator;
+import com.me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import com.me.yokeyword.fragmentation.anim.FragmentAnimator;
 import com.me.yokeyword.fragmentation.debug.DebugStackDelegate;
 import com.me.yokeyword.fragmentation.queue.Action;
@@ -102,7 +102,7 @@ public class SupportActivityDelegate {
      * @return FragmentAnimator对象
      */
     public FragmentAnimator onCreateFragmentAnimator() {
-        return new DefaultVerticalAnimator();
+        return new DefaultHorizontalAnimator();
     }
 
     /**

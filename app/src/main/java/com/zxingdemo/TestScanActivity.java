@@ -12,6 +12,7 @@ import android.view.View;
 import com.dale.demo.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
+import com.ty.scriptsync.mylibrary.LogUtil;
 import com.zxing.qrcode.core.BarcodeType;
 import com.zxing.qrcode.core.QRCodeView;
 import com.zxing.qrcode.view.ZXingView;
@@ -33,9 +34,10 @@ public class TestScanActivity extends AppCompatActivity implements QRCodeView.De
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_scan);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
+        LogUtil.log("----------");
         mZXingView = findViewById(R.id.zxingview);
         mZXingView.setDelegate(this);
+
     }
 
     @Override

@@ -1,59 +1,35 @@
 package com.dale.supportdemo;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
 
+import com.cn.common.ui.BaseActivity;
+import com.cn.common.util.ABConfig;
 import com.dale.demo.R;
 
 /**
- * 文件描述:
+ * 文件描述: 测试全局一个activity
  * 作者Dale:2019/4/28
  */
-public class DemoActivity extends BaseSupportActivity {
-
-    private static final String KEY_PARAMS = "params";
-    private static final String KEY_FRAGMENT = "fragment";
+public class DemoActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_demo);
+    protected int getLayoutId() {
+        return R.layout.activity_demo;
+    }
+
+    @Override
+    protected void initViewsAndEvents() {
         findViewById(R.id.btn_demo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                go2(DemoFragment.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(ABConfig.KEY_TEXT,"wo gan");
+                goFragment(DemoFragment.class,bundle);
             }
         });
 
         ((Button)findViewById(R.id.btn_demo)).setText("DemoActivity");
-
-//        setContentView(R.layout.fragment_base);
-//        test();
-    }
-
-    public void go2(Class<? extends Fragment> toClass){
-        Intent mIntent = new Intent();
-        mIntent.putExtra(KEY_FRAGMENT,toClass.getCanonicalName());
-        mIntent.setClass(DemoActivity.this,PluginFragmentActivity.class);
-        startActivity(mIntent);
-//        overridePendingTransition(R.anim.h_fragment_enter, R.anim.h_fragment_pop_exit);
-    }
-
-
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-
-    private void test(){
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        DemoFragment fragment = new DemoFragment();
-        fragmentTransaction.add(R.id.fragment_content,fragment).show(fragment).commit();
     }
 }

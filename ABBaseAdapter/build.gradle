@@ -1,10 +1,16 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 def customizeConfig = rootProject.ext.android //android配置
 def rootDependencies = rootProject.ext.dependencies //库依赖
 
 android {
     compileSdkVersion customizeConfig.compileSdkVersion
+
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
 
     defaultConfig {
         minSdkVersion customizeConfig.minSdkVersion
@@ -53,6 +59,17 @@ dependencies {
     androidTestImplementation rootDependencies["test_runner"]
     androidTestImplementation rootDependencies["espresso_core"]
     //系统库
-    implementation rootDependencies["appcompat_v7"]
-    implementation rootDependencies["recyclerview"]
+    compileOnly rootDependencies["appcompat_v7"]
+    compileOnly rootDependencies["recyclerview"]
+}
+
+
+publish {
+    userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
+    groupId = 'com.chad.adapter'  //jcenter上的路径
+    artifactId = 'ABBaseAdapter'  //项目名称
+    publishVersion = '1.0.1'    //版本号
+    desc = 'sliding captcha'
+    website = 'https://github.com'
+    licences = 'Apache-2.0'
 }

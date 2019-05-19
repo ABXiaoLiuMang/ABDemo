@@ -1,10 +1,9 @@
-package com.anim;
+package com.me.yokeyword.fragmentation.anim;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.me.yokeyword.R;
-import com.me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 
 /**

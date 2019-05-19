@@ -10,12 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.dale.demo.R;
+import com.me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * 文件描述:
  * 作者Dale:2019/4/28
  */
-public class SecondFragment extends  BaseSupportFragment{
+public class SecondFragment extends SupportFragment {
 
     View rootView;
 

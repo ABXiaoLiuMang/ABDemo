@@ -37,18 +37,18 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDelegate.onCreate(savedInstanceState);
+        mDelegate.onCreate(savedInstanceState);//必须
     }
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        mDelegate.onPostCreate(savedInstanceState);
+        mDelegate.onPostCreate(savedInstanceState);//必须
     }
 
     @Override
     protected void onDestroy() {
-        mDelegate.onDestroy();
+        mDelegate.onDestroy();//必须
         super.onDestroy();
     }
 
@@ -165,26 +165,26 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#start(ISupportFragment)}.
+     * It is recommended to use {@link SupportFragment#startFragment(ISupportFragment)}.
      */
-    public void start(ISupportFragment toFragment) {
+    public void startFragment(ISupportFragment toFragment) {
         mDelegate.start(toFragment);
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#start(ISupportFragment, int)}.
+     * It is recommended to use {@link SupportFragment#startFragment(ISupportFragment, int)}.
      *
      * @param launchMode Similar to Activity's LaunchMode.
      */
-    public void start(ISupportFragment toFragment, @ISupportFragment.LaunchMode int launchMode) {
+    public void startFragment(ISupportFragment toFragment, @ISupportFragment.LaunchMode int launchMode) {
         mDelegate.start(toFragment, launchMode);
     }
 
     /**
-     * It is recommended to use {@link SupportFragment#startForResult(ISupportFragment, int)}.
+     * It is recommended to use {@link SupportFragment#startFragmentForResult(ISupportFragment, int)}.
      * Launch an fragment for which you would like a result when it poped.
      */
-    public void startForResult(ISupportFragment toFragment, int requestCode) {
+    public void startFragmentForResult(ISupportFragment toFragment, int requestCode) {
         mDelegate.startForResult(toFragment, requestCode);
     }
 
@@ -201,7 +201,7 @@ public class SupportActivity extends AppCompatActivity implements ISupportActivi
      *
      * @see #popTo(Class, boolean)
      * +
-     * @see #start(ISupportFragment)
+     * @see #startFragment(ISupportFragment)
      */
     public void startWithPopTo(ISupportFragment toFragment, Class<?> targetFragmentClass, boolean includeTargetFragment) {
         mDelegate.startWithPopTo(toFragment, targetFragmentClass, includeTargetFragment);

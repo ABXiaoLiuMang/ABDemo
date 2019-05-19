@@ -47,9 +47,17 @@ ext {
             switchbutton           : 'com.kyleduo.switchbutton:library:2.0.0',
             photopicker            : 'cn.bingoogolapple:bga-photopicker:1.2.8@aar',
             bga_baseadapter        : 'cn.bingoogolapple:bga-baseadapter:1.2.9@aar',
-            zxing                  : 'com.google.zxing:core:3.3.3',
+            zxing                  : 'com.google.zxing:core:3.3.3',//https://github.com/bingoogolapple/BGAQRCode-Android
             PhotoView              : 'com.github.chrisbanes:PhotoView:2.0.0', //    https://github.com/chrisbanes/PhotoView
             PickerView             : 'com.contrarywind:Android-PickerView:4.1.3',//   https://github.com/Bigkoo/Android-PickerView
             MagicIndicator         : 'com.github.hackware1993:MagicIndicator:1.5.0',
+            logutil                : 'com.div.util:log:1.0',
+
+            //自己编译
+            fragmentation          : 'me.yokeyword:Fragmentation:1.0.1',
+            ABBaseAdapter          : 'com.chad.adapter:ABBaseAdapter:1.0.0',
+            ABZxing                : 'com.zxing:ABZxing:1.0.1',
+            SmartRefreshLayout     : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.1',
     ]
+
 }

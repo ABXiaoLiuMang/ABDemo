@@ -24,6 +24,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.cn.common.ui.PluginFragmentActivity" />
+
         <activity android:name="com.chad.baserecyclerviewadapterhelper.HeaderAndFooterUseActivity" />
         <activity android:name="com.chad.baserecyclerviewadapterhelper.SectionUseActivity" />
         <activity android:name="com.chad.baserecyclerviewadapterhelper.ChooseMultipleItemUseTypeActivity" />
@@ -58,10 +60,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths"/>
         </provider>
-
-
-
-        <activity android:name="com.dale.supportdemo.PluginFragmentActivity"/>
 
 
     </application>

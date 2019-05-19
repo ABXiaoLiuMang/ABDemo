@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 def customizeConfig = rootProject.ext.android //android配置
 def rootDependencies = rootProject.ext.dependencies //库依赖
@@ -6,12 +7,23 @@ def rootDependencies = rootProject.ext.dependencies //库依赖
 android {
     compileSdkVersion customizeConfig.compileSdkVersion
 
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+
     defaultConfig {
         minSdkVersion customizeConfig.minSdkVersion
         targetSdkVersion customizeConfig.targetSdkVersion
         versionCode appVersionCode as int
         versionName appVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true    //加上这行即可
+            }
+        }
 
     }
 
@@ -30,5 +42,15 @@ dependencies {
     androidTestImplementation rootDependencies["test_runner"]
     androidTestImplementation rootDependencies["espresso_core"]
     //系统库
-    implementation rootDependencies["appcompat_v7"]
+    compileOnly rootDependencies["appcompat_v7"]
+}
+
+publish {
+    userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
+    groupId = 'me.yokeyword'  //jcenter上的路径
+    artifactId = 'Fragmentation'  //项目名称
+    publishVersion = '1.0.1'    //版本号
+    desc = 'YoKeyword Fragmentation'
+    website = 'https://github.com/YoKeyword/Fragmentation'
+    licences = 'Apache-2.0'
 }
