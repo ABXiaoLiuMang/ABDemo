@@ -25,7 +25,7 @@ public class DemoActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString(ABConfig.KEY_TEXT, "wo gan");
+                bundle.putString(ABConfig.KEY_TEXT, "正在加载...");
                 goActivityFragment(DemoFragment.class, bundle);
             }
         });

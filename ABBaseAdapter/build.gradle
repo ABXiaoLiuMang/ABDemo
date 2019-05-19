@@ -68,8 +68,8 @@ dependencies {
 //    userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
 //    groupId = 'com.chad.adapter'  //jcenter上的路径
 //    artifactId = 'ABBaseAdapter'  //项目名称
-//    publishVersion = '1.0.1'    //版本号
-//    desc = 'sliding captcha'
+//    publishVersion = '1.0.0'    //版本号
+//    desc = 'ABBaseAdapter'
 //    website = 'https://github.com'
 //    licences = 'Apache-2.0'
 //}

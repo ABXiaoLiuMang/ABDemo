@@ -159,6 +159,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends SupportActiv
         }
         mIntent.setClass(mContext, PluginFragmentActivity.class);
         startActivity(mIntent);
+        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     }
 
     private void initPresenter() {

@@ -1,6 +1,6 @@
 package com.cn.common.dialog;
 
-import android.app.ProgressDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,13 +15,13 @@ import com.cn.common.ui.R;
  * 加载等待对话框
  */
 
-public class ABProgressDialog extends ProgressDialog {
+public class ABProgressDialog extends Dialog {
 
     TextView tv_load;
     View _view;
 
     public ABProgressDialog(Context context){
-        super(context, R.style.CustomProgressDialog);
+        super(context, R.style.MyDialogStyle);
         _view = LayoutInflater.from(context).inflate(
                 R.layout.load_dialog, null);
         tv_load = _view.findViewById(R.id.tv_load);

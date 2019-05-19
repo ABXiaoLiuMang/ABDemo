@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.novoda.bintray-release'
 
 def customizeConfig = rootProject.ext.android //android配置
 def rootDependencies = rootProject.ext.dependencies //库依赖
@@ -47,18 +47,18 @@ dependencies {
     compileOnly rootDependencies["appcompat_v7"]
     compileOnly rootDependencies["butterknife"]
     compileOnly rootDependencies["butterknife_compiler"]
-    compileOnly rootDependencies["fragmentation"]
+    compileOnly rootDependencies["ABYoKeyword"]
     compileOnly rootDependencies["ABBaseAdapter"]
     compileOnly rootDependencies["SmartRefreshLayout"]
     compileOnly rootDependencies["recyclerview"]
 }
 
-//publish {
-//    userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
-//    groupId = 'com.scwang.smartrefresh'  //jcenter上的路径
-//    artifactId = 'SmartRefreshLayout'  //项目名称
-//    publishVersion = '1.0.0'    //版本号
-//    desc = 'SmartRefreshLayout'
-//    website = 'https://github.com/scwang90/SmartRefreshLayout'
-//    licences = 'Apache-2.0'
-//}
+publish {
+    userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
+    groupId = 'com.dale.base'  //jcenter上的路径
+    artifactId = 'ABCommon'  //项目名称
+    publishVersion = '1.0.0'    //版本号
+    desc = 'ABCommon'
+    website = 'https://github.com'
+    licences = 'Apache-2.0'
+}

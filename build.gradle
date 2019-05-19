@@ -16,6 +16,9 @@ buildscript {
         // in the individual module build.gradle files
 
         classpath 'com.novoda:bintray-release:0.9'
+
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+//        classpath 'com.github.dcendents:android-maven-plugin:1.2'
     }
 }
 

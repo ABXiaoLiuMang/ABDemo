@@ -29,7 +29,7 @@ public class DemoFragment extends BaseFragment<DemoPresenter> implements TestCon
 
     @Override
     public void getBindTextVlaue(String text) {
-        startFragment(TestRereshFregment.newInstance());
-        dismissProgressDialog();
+//        startFragment(TestRereshFregment.newInstance());
+//        dismissProgressDialog();
     }
 }

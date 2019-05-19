@@ -28,7 +28,9 @@ public abstract class ABRefreshBaseFragment<T, P extends BasePresenter> extends 
 
     @Override
     protected void initViewsAndEvents() {
-        childPresenter = (P) presenter;
+        if(presenter != null){
+            childPresenter = (P) presenter;
+        }
         recyclerview = rootView.findViewById(R.id.recyclerview);
         refreshLayout = rootView.findViewById(R.id.refreshLayout);
         switch (mode){

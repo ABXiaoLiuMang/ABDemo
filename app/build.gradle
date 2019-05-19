@@ -146,15 +146,17 @@ dependencies {
     implementation rootDependencies["zxing"]
 
    // 自己
-    implementation rootDependencies["fragmentation"]
+    implementation rootDependencies["ABYoKeyword"]
     implementation rootDependencies["ABBaseAdapter"]
     implementation rootDependencies["ABZxing"]
     implementation rootDependencies["SmartRefreshLayout"]
+    implementation rootDependencies["ABCommon"]
 
 
 
-    implementation project(path: ':ABCommon')
     implementation project(path: ':ABView')
+//    implementation project(path: ':ABCommon')
+//    implementation project(path: ':ABSupport')
 //    implementation 'org.jetbrains:annotations-java5:15.0'
 
 }

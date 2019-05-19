@@ -53,10 +53,11 @@ ext {
             MagicIndicator         : 'com.github.hackware1993:MagicIndicator:1.5.0',
 
             //自己编译
-            fragmentation          : 'me.yokeyword:Fragmentation:1.0.2',
-            ABBaseAdapter          : 'com.chad.adapter:ABBaseAdapter:1.0.1',
-            ABZxing                : 'com.zxing:ABZxing:1.0.2',
+            ABYoKeyword            : 'me.yokeyword:ABYoKeyword:1.0.0',
+            ABBaseAdapter          : 'com.chad.adapter:ABBaseAdapter:1.0.0',
+            ABZxing                : 'com.zxing:ABZxing:1.0.0',
             SmartRefreshLayout     : 'com.scwang.smartrefresh:ABRefrshView:1.0.0',
+            ABCommon               : 'com.dale.base:ABCommon:1.0.0',
     ]
 
 }

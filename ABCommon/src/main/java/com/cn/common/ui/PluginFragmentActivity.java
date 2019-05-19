@@ -49,6 +49,12 @@ public class PluginFragmentActivity extends SupportActivity {
     }
 
     @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         ExitUtils.getInstance().removeActivity(this);//关闭的Act
