@@ -6,6 +6,11 @@ def rootDependencies = rootProject.ext.dependencies //库依赖
 android {
     compileSdkVersion customizeConfig.compileSdkVersion
 
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+
     defaultConfig {
         minSdkVersion customizeConfig.minSdkVersion
         targetSdkVersion customizeConfig.targetSdkVersion

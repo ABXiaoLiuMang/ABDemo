@@ -144,10 +144,8 @@ dependencies {
     implementation rootDependencies["photopicker"]
     implementation rootDependencies["bga_baseadapter"]
     implementation rootDependencies["zxing"]
-    implementation rootDependencies["logutil"]
 
    // 自己
-    implementation rootDependencies["logutil"]
     implementation rootDependencies["fragmentation"]
     implementation rootDependencies["ABBaseAdapter"]
     implementation rootDependencies["ABZxing"]

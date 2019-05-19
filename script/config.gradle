@@ -51,13 +51,12 @@ ext {
             PhotoView              : 'com.github.chrisbanes:PhotoView:2.0.0', //    https://github.com/chrisbanes/PhotoView
             PickerView             : 'com.contrarywind:Android-PickerView:4.1.3',//   https://github.com/Bigkoo/Android-PickerView
             MagicIndicator         : 'com.github.hackware1993:MagicIndicator:1.5.0',
-            logutil                : 'com.div.util:log:1.0',
 
             //自己编译
-            fragmentation          : 'me.yokeyword:Fragmentation:1.0.1',
-            ABBaseAdapter          : 'com.chad.adapter:ABBaseAdapter:1.0.0',
-            ABZxing                : 'com.zxing:ABZxing:1.0.1',
-            SmartRefreshLayout     : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.1',
+            fragmentation          : 'me.yokeyword:Fragmentation:1.0.2',
+            ABBaseAdapter          : 'com.chad.adapter:ABBaseAdapter:1.0.1',
+            ABZxing                : 'com.zxing:ABZxing:1.0.2',
+            SmartRefreshLayout     : 'com.scwang.smartrefresh:ABRefrshView:1.0.0',
     ]
 
 }

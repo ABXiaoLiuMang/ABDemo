@@ -55,17 +55,20 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
         if(_id_right != -1){
             right_drawable= context.getResources().getDrawable(_id_right);
         }
-        View mlLinearLayout = LayoutInflater.from(context).inflate(R.layout.view_titlebar, this, true);
-        tv_back = mlLinearLayout.findViewById(R.id.tv_back);
-        tv_title = mlLinearLayout.findViewById(R.id.tv_title);
-        tv_right = mlLinearLayout.findViewById(R.id.tv_right);
-        setTextView();
         mTypedArray.recycle();
     }
 
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        View mlLinearLayout = LayoutInflater.from(mContext).inflate(R.layout.view_titlebar, this, true);
+        tv_back = mlLinearLayout.findViewById(R.id.backView);
+        tv_title = mlLinearLayout.findViewById(R.id.tv_title);
+        tv_right = mlLinearLayout.findViewById(R.id.tv_right);
+        setTextView();
+    }
 
     private void setTextView() {
-
         tv_back.setVisibility(showLeft ? View.VISIBLE : View.GONE);
         if (leftTitle != null) {
             tv_back.setText(leftTitle);
@@ -91,7 +94,6 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
             right_drawable.setBounds(0, 0, right_drawable.getMinimumWidth(), right_drawable.getMinimumHeight());
             tv_right.setCompoundDrawables(null, null, right_drawable, null);
         }
-
         tv_back.setOnClickListener(this);
         tv_right.setOnClickListener(this);
         tv_title.setOnClickListener(this);
@@ -105,7 +107,7 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-    	if(v.getId() == R.id.tv_back){
+    	if(v.getId() == R.id.backView){
     		  if (leftOnClickListener == null) {
                   ((Activity) mContext).finish();
               } else {

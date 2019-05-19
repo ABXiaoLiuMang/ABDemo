@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import com.cn.common.dialog.ABProgressDialog;
 import com.cn.common.senter.ABLifeRegistry;
 import com.cn.common.senter.ABState;
-import com.me.yokeyword.fragmentation.PluginFragmentActivity;
 import com.me.yokeyword.fragmentation.SupportFragment;
 
 import java.lang.reflect.Type;
@@ -25,7 +24,7 @@ import butterknife.Unbinder;
 /**
  * create by Dale
  * create on 2019/5/17
- * description:
+ * description:所有Fragment基类
  */
 public abstract class BaseFragment<P extends BasePresenter> extends SupportFragment {
     protected P presenter;
@@ -163,11 +162,19 @@ public abstract class BaseFragment<P extends BasePresenter> extends SupportFragm
         }
     }
 
-    public void goFragment(Class<? extends Fragment> toClass){
-       this.goFragment(toClass,null);
+    /**
+     * 新启动Activity跳转方式
+     * @param toClass 目标 Fragment
+     */
+    public void goActivityFragment(Class<? extends Fragment> toClass){
+       this.goActivityFragment(toClass,null);
     }
 
-    public void goFragment(Class<? extends Fragment> toClass,Bundle bundle){
+    /**
+     * 新启动Activity跳转方式
+     * @param toClass 目标 Fragment
+     */
+    public void goActivityFragment(Class<? extends Fragment> toClass,Bundle bundle){
         Intent mIntent = new Intent();
         mIntent.putExtra(PluginFragmentActivity.KEY_FRAGMENT,toClass.getCanonicalName());
         if(bundle != null){

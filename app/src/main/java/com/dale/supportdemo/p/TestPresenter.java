@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.cn.common.ui.BasePresenter;
-import com.dale.supportdemo.DemoFragment;
+import com.dale.supportdemo.TestRereshFregment;
 
 
 /**
@@ -13,7 +13,7 @@ import com.dale.supportdemo.DemoFragment;
  * create on 2019/5/17
  * description:
  */
-public class TestPresenter extends BasePresenter<DemoFragment> implements TestContract.IBindPresenter {
+public class TestPresenter extends BasePresenter<TestRereshFregment> implements TestContract.IBindPresenter {
 
     @Override
     public void onCreate() {

@@ -147,11 +147,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends SupportActiv
         }
     }
 
-    public void goFragment(Class<? extends Fragment> toClass){
-        this.goFragment(toClass,null);
+    public void goActivityFragment(Class<? extends Fragment> toClass){
+        this.goActivityFragment(toClass,null);
     }
 
-    public void goFragment(Class<? extends Fragment> toClass,Bundle bundle){
+    public void goActivityFragment(Class<? extends Fragment> toClass,Bundle bundle){
         Intent mIntent = new Intent();
         mIntent.putExtra(PluginFragmentActivity.KEY_FRAGMENT,toClass.getCanonicalName());
         if(bundle != null){

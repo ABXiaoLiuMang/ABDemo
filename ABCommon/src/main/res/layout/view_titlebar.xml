@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/barcolor">
+                android:layout_height="wrap_content"
+    >
 
     <TextView
-        android:id="@+id/tv_back"
+        android:id="@+id/backView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:clickable="true"
         android:gravity="center"
         android:minWidth="60dp"
-        android:paddingLeft="10dp"
-        android:drawableLeft="@drawable/lib_view_back_select_bg"
-        android:paddingRight="5dp"
+        android:paddingStart="10dp"
+        android:drawableStart="@drawable/lib_view_back_select_bg"
+        android:paddingEnd="5dp"
         android:textSize="15sp"
-        android:textColor="@drawable/lib_view_titlebar_select_bg"/>
+        android:textColor="@drawable/lib_view_titlebar_select_bg"
+        android:focusable="true" />
 
 
     <TextView
@@ -28,9 +29,10 @@
         android:minWidth="60dp"
         android:paddingLeft="10dp"
         android:drawablePadding="-10dp"
-        android:layout_alignParentRight="true"
-        android:paddingRight="15dp"
-        android:textColor="@drawable/lib_view_titlebar_select_bg"/>
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="15dp"
+        android:textColor="@drawable/lib_view_titlebar_select_bg"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -46,4 +48,4 @@
         android:singleLine="true"
         android:gravity="center"
         android:textColor="@color/titlebar_left_normal_textColor"/>
-</RelativeLayout>
+</merge>

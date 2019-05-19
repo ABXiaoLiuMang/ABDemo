@@ -25,11 +25,11 @@ public class DemoActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString(ABConfig.KEY_TEXT,"wo gan");
-                goFragment(DemoFragment.class,bundle);
+                bundle.putString(ABConfig.KEY_TEXT, "wo gan");
+                goActivityFragment(DemoFragment.class, bundle);
             }
         });
 
-        ((Button)findViewById(R.id.btn_demo)).setText("DemoActivity");
+        ((Button) findViewById(R.id.btn_demo)).setText("DemoActivity");
     }
 }

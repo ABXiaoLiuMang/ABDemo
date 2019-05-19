@@ -14,15 +14,15 @@
 */
 package com.chad.baserecyclerviewadapterhelper;
 
-import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.chad.baserecyclerviewadapterhelper.util.Utils;
+import com.cn.common.util.ABApplication;
 import com.dale.demo.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreater;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreater;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -39,12 +39,12 @@ import com.tencent.bugly.beta.Beta;
  * 修改时间：
  * 修改备注：
  */
-public class MyApplication extends Application {
+public class MyApplication extends ABApplication {
 
     //static 代码段可以防止内存泄露
     static {
         //设置全局的Header构建器
-        SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
             @Override
             public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
                 layout.setPrimaryColorsId(R.color.colorAccent, android.R.color.white);//全局设置主题颜色
@@ -52,7 +52,7 @@ public class MyApplication extends Application {
             }
         });
         //设置全局的Footer构建器
-        SmartRefreshLayout.setDefaultRefreshFooterCreater(new DefaultRefreshFooterCreater() {
+        SmartRefreshLayout.setDefaultRefreshFooterCreator(new DefaultRefreshFooterCreator() {
             @Override
             public RefreshFooter createRefreshFooter(Context context, RefreshLayout layout) {
                 //指定为经典Footer，默认是 BallPulseFooter

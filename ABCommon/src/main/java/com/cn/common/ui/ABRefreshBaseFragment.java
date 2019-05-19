@@ -5,15 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 /**
  * create by Dale
  * create on 2019/5/17
- * description:
+ * description:下拉刷新基类
  */
-public abstract class ABRefreshBaseFragment<T, P extends BasePresenter> extends BaseFragment implements OnRefreshListener, OnLoadmoreListener {
+public abstract class ABRefreshBaseFragment<T, P extends BasePresenter> extends BaseFragment implements OnRefreshListener, OnLoadMoreListener {
 
     protected BaseQuickAdapter<T, BaseViewHolder> listAdapter;
     protected SmartRefreshLayout refreshLayout;
@@ -32,17 +32,23 @@ public abstract class ABRefreshBaseFragment<T, P extends BasePresenter> extends 
         recyclerview = rootView.findViewById(R.id.recyclerview);
         refreshLayout = rootView.findViewById(R.id.refreshLayout);
         switch (mode){
-            case PULL_FROM_END:
-                refreshLayout.setOnLoadmoreListener(this);
+            case PULL_FROM_END://上拉加载更多
+                refreshLayout.setOnLoadMoreListener(this);
+                refreshLayout.setEnableRefresh(false);
+                refreshLayout.setEnableLoadMore(true);
                 break;
             case PULL_FROM_START://顶部下拉刷新
                 refreshLayout.setOnRefreshListener(this);
+                refreshLayout.setEnableRefresh(true);
+                refreshLayout.setEnableLoadMore(false);
                 break;
             case BOTH://上下都刷新
                 refreshLayout.setOnRefreshListener(this);
-                refreshLayout.setOnLoadmoreListener(this);
+                refreshLayout.setOnLoadMoreListener(this);
                 break;
             case DISABLED://上下都不刷新
+                refreshLayout.setEnableLoadMore(false);
+                refreshLayout.setEnableRefresh(false);
                 break;
         }
 
@@ -55,37 +61,31 @@ public abstract class ABRefreshBaseFragment<T, P extends BasePresenter> extends 
         recyclerview.setAdapter(listAdapter);
     }
 
-    public void setMode(Mode mode) {
+    protected void setMode(Mode mode) {
         this.mode = mode;
     }
 
     /**
      * @return ListView适配器
      */
-    public abstract BaseQuickAdapter<T, BaseViewHolder> getListAdapter();
+    protected abstract BaseQuickAdapter<T, BaseViewHolder> getListAdapter();
 
-    public abstract RecyclerView.LayoutManager getLayoutManager();
+    protected abstract RecyclerView.LayoutManager getLayoutManager();
 
-    public abstract RecyclerView.ItemDecoration getItemDecoration();
+    protected abstract RecyclerView.ItemDecoration getItemDecoration();
 
-    public static enum Mode {
+    protected enum Mode {
 
-        DISABLED(0x0),
+        DISABLED,
 
-        PULL_FROM_START(0x1),
+        PULL_FROM_START,
 
-        PULL_FROM_END(0x2),
+        PULL_FROM_END,
 
-        BOTH(0x3);
+        BOTH;
 
         static Mode getDefault() {
-            return PULL_FROM_START;
-        }
-
-        private int mIntValue;
-
-        Mode(int modeInt) {
-            mIntValue = modeInt;
+            return BOTH;
         }
     }
 }
