@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+def customizeConfig = rootProject.ext.android //android配置
+def rootDependencies = rootProject.ext.dependencies //库依赖
+
+android {
+    compileSdkVersion customizeConfig.compileSdkVersion
+
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+
+    defaultConfig {
+        minSdkVersion customizeConfig.minSdkVersion
+        targetSdkVersion customizeConfig.targetSdkVersion
+        versionCode appVersionCode as int
+        versionName appVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true    //butterknife3.0以后编译加上这行即可
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation rootDependencies["junit"]
+    androidTestImplementation rootDependencies["test_runner"]
+    androidTestImplementation rootDependencies["espresso_core"]
+
+    implementation rootDependencies["support_annotations"]
+
+
+    compileOnly rootDependencies["okhttp"]
+    compileOnly rootDependencies["retrofit"]
+    compileOnly rootDependencies["converter_gson"]
+    compileOnly rootDependencies["adapter_rxjava2"]
+    compileOnly rootDependencies["rxandroid"]
+    compileOnly rootDependencies["appcompat_v7"]
+}
+
+publish {
+    userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
+    groupId = 'com.dale.net'  //jcenter上的路径
+    artifactId = 'ABNet'  //项目名称
+    publishVersion = '1.0.0'    //版本号
+    desc = 'ABNet'
+    website = 'https://github.com'
+    licences = 'Apache-2.0'
+}

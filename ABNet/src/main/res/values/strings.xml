@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ABNet</string>
+    <string name="no_network">网络异常</string>
+    <string name="request_interval_short">域名请求时间间隔太短</string>
+</resources>

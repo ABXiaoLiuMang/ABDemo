@@ -51,6 +51,7 @@ ext {
             PhotoView              : 'com.github.chrisbanes:PhotoView:2.0.0', //    https://github.com/chrisbanes/PhotoView
             PickerView             : 'com.contrarywind:Android-PickerView:4.1.3',//   https://github.com/Bigkoo/Android-PickerView
             MagicIndicator         : 'com.github.hackware1993:MagicIndicator:1.5.0',
+            logutils               : 'com.apkfuns.logutils:library:1.6.0',
 
             //自己编译
             ABYoKeyword            : 'me.yokeyword:ABYoKeyword:1.0.0',

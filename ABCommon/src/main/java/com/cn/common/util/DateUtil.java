@@ -48,7 +48,6 @@ public class DateUtil {
     /**
      * desc: 获取当月的第几个月 如上个月 amount 传-1
      *
-     * @author Jeff created on 2018/10/7 11:46
      */
     @SuppressWarnings("unused")
     public static Date getMonth(int amount) {
@@ -60,7 +59,6 @@ public class DateUtil {
     /**
      * desc: 一个月的第几天
      *
-     * @author Jeff created on 2018/10/7 18:52
      */
     @SuppressWarnings({"unused","WeakerAccess"})
     public static Date getMonthDay(int day) {

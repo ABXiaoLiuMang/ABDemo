@@ -20,6 +20,7 @@ import android.support.multidex.MultiDex;
 import com.chad.baserecyclerviewadapterhelper.util.Utils;
 import com.cn.common.util.ABApplication;
 import com.dale.demo.R;
+import com.dale.net.ABNet;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
@@ -40,6 +41,10 @@ import com.tencent.bugly.beta.Beta;
  * 修改备注：
  */
 public class MyApplication extends ABApplication {
+    private static final int READ_TIME_OUT = 30 * 1000;
+    private static final long WRITE_TIME_OUT = 30 * 1000;
+    private static final int CONNECT_TIME_OUT = 30 * 1000;
+
 
     //static 代码段可以防止内存泄露
     static {
@@ -76,6 +81,13 @@ public class MyApplication extends ABApplication {
         Utils.init(this);
         Bugly.setIsDevelopmentDevice(this, true);//设置为开发设备 注意这个必须在初始化Bugly之前设置为开发设备
         Bugly.init(this,"04de93395e",true);
+
+        ABNet.initConfig(this)
+                .baseUrl("https://apitest.phptestit.com/CPTEST/")
+                .needLog(true)
+                .connectTimeout(CONNECT_TIME_OUT)
+                .readTimeout(READ_TIME_OUT)
+                .writeTimeout(WRITE_TIME_OUT);
     }
 
     protected void attachBaseContext(Context base) {

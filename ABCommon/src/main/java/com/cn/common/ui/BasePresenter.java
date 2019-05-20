@@ -101,7 +101,6 @@ public class BasePresenter<V>{
 
     /**
      * desc: 界面跳转event接收
-     *@author Jeff created on 2018/8/25 13:37
      */
 //    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
 //    public final void  getEvent(YaboEvent event){
@@ -116,7 +115,6 @@ public class BasePresenter<V>{
 
     /**
      * desc: 获取当前View 可能为空,请做好非空判断
-     *@author Jeff created on 2018/9/6 18:19
      */
     public V getView(){
         if (mView == null) return null;

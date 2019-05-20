@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.dale.supportdemo.DemoActivity">
+        <activity android:name="com.net.TestNetActivity">
 <!--
         <activity android:name="com.chad.baserecyclerviewadapterhelper.WelcomeActivity">
 -->

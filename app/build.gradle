@@ -144,6 +144,7 @@ dependencies {
     implementation rootDependencies["photopicker"]
     implementation rootDependencies["bga_baseadapter"]
     implementation rootDependencies["zxing"]
+    implementation rootDependencies["logutils"]
 
    // 自己
     implementation rootDependencies["ABYoKeyword"]
@@ -155,9 +156,9 @@ dependencies {
 
 
     implementation project(path: ':ABView')
+    implementation project(path: ':ABNet')
 //    implementation project(path: ':ABCommon')
 //    implementation project(path: ':ABSupport')
-//    implementation 'org.jetbrains:annotations-java5:15.0'
 
 }
 
