@@ -59,6 +59,7 @@ ext {
             ABZxing                : 'com.zxing:ABZxing:1.0.0',
             SmartRefreshLayout     : 'com.scwang.smartrefresh:ABRefrshView:1.0.0',
             ABCommon               : 'com.dale.base:ABCommon:1.0.0',
+            ABNet                  : 'com.dale.net:ABNet:1.0.0',
     ]
 
 }

@@ -152,13 +152,11 @@ dependencies {
     implementation rootDependencies["ABZxing"]
     implementation rootDependencies["SmartRefreshLayout"]
     implementation rootDependencies["ABCommon"]
+    implementation rootDependencies["ABNet"]
 
 
 
     implementation project(path: ':ABView')
-    implementation project(path: ':ABNet')
-//    implementation project(path: ':ABCommon')
-//    implementation project(path: ':ABSupport')
 
 }
 
