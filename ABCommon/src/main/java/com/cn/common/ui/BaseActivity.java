@@ -13,6 +13,7 @@ import com.cn.common.view.StatusBarSuperUtil;
 import com.me.yokeyword.fragmentation.SupportActivity;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -189,6 +190,20 @@ public abstract class BaseActivity<P extends BasePresenter> extends SupportActiv
 
     protected void initSystemBar(){
         StatusBarSuperUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
+    }
+
+    /**
+     * 解决Fragment中的onActivityResult()方法无响应问题。
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (getSupportFragmentManager().getFragments() != null && getSupportFragmentManager().getFragments().size() > 0) {
+            List<Fragment> fragments = getSupportFragmentManager().getFragments();
+            for (Fragment mFragment : fragments) {
+                mFragment.onActivityResult(requestCode, resultCode, data);
+            }
+        }
     }
 
 }

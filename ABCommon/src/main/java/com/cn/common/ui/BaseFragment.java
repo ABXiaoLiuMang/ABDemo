@@ -68,6 +68,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends SupportFragm
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view,savedInstanceState);
         initPresenter();
         if (presenter != null) {
             presenter.onCreate();

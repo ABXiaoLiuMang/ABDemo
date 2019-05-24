@@ -1,6 +1,5 @@
 package com.cn.common.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -94,7 +93,7 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
             right_drawable.setBounds(0, 0, right_drawable.getMinimumWidth(), right_drawable.getMinimumHeight());
             tv_right.setCompoundDrawables(null, null, right_drawable, null);
         }
-        tv_back.setOnClickListener(this);
+//        tv_back.setOnClickListener(this);
         tv_right.setOnClickListener(this);
         tv_title.setOnClickListener(this);
     }
@@ -107,13 +106,14 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-    	if(v.getId() == R.id.backView){
-    		  if (leftOnClickListener == null) {
-                  ((Activity) mContext).finish();
-              } else {
-                  leftOnClickListener.onLeftClick(v);
-              }
-    	}else if(v.getId() == R.id.tv_right){
+//    	if(v.getId() == R.id.backView){
+//    		  if (leftOnClickListener == null) {
+//                  ((Activity) mContext).finish();
+//              } else {
+//                  leftOnClickListener.onLeftClick(v);
+//              }
+//    	}else
+        if(v.getId() == R.id.tv_right){
     		if (rightOnClickListener != null) {
                 rightOnClickListener.onRightClick(v);
             }
@@ -133,11 +133,12 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
     }
 
     /**
-     * @param leftOnClickListener 设置左边按钮监听
+     * 设置左边按钮监听
+     * @param
      */
-    public void setLeftOnClickListener(LeftBtnOnClickListener leftOnClickListener) {
-        this.leftOnClickListener = leftOnClickListener;
-    }
+//    public void setLeftOnClickListener(LeftBtnOnClickListener leftOnClickListener) {
+//        this.leftOnClickListener = leftOnClickListener;
+//    }
 
     public void setTitleOnClickListener(TitleOnClickListener titleOnClickListener) {
         this.titleOnClickListener = titleOnClickListener;

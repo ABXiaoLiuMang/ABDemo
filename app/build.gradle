@@ -147,16 +147,18 @@ dependencies {
     implementation rootDependencies["logutils"]
 
    // 自己
-    implementation rootDependencies["ABYoKeyword"]
+//    implementation rootDependencies["ABYoKeyword"]
     implementation rootDependencies["ABBaseAdapter"]
     implementation rootDependencies["ABZxing"]
     implementation rootDependencies["SmartRefreshLayout"]
-    implementation rootDependencies["ABCommon"]
+//    implementation rootDependencies["ABCommon"]
     implementation rootDependencies["ABNet"]
 
 
 
     implementation project(path: ':ABView')
+    implementation project(path: ':ABSupport')
+    implementation project(path: ':ABCommon')
 
 }
 

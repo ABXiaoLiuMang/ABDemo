@@ -19,8 +19,10 @@ import android.support.multidex.MultiDex;
 
 import com.chad.baserecyclerviewadapterhelper.util.Utils;
 import com.cn.common.util.ABApplication;
+import com.dale.demo.BuildConfig;
 import com.dale.demo.R;
 import com.dale.net.ABNet;
+import com.me.yokeyword.fragmentation.Fragmentation;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
@@ -88,6 +90,13 @@ public class MyApplication extends ABApplication {
                 .connectTimeout(CONNECT_TIME_OUT)
                 .readTimeout(READ_TIME_OUT)
                 .writeTimeout(WRITE_TIME_OUT);
+
+        if (BuildConfig.DEBUG) {
+            Fragmentation.builder()
+                    .stackViewMode(Fragmentation.BUBBLE)
+                    .debug(true)
+                    .install();
+        }
     }
 
     protected void attachBaseContext(Context base) {

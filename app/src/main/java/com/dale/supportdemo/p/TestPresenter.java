@@ -26,7 +26,9 @@ public class TestPresenter extends BasePresenter<TestRereshFregment> implements 
        new Handler().postDelayed(new Runnable() {
            @Override
            public void run() {
-               getView().getBindTextVlaue("gan  ni mei");
+               if(getView()!=null){
+                   getView().getBindTextVlaue("gan  ni mei");
+               }
            }
        },2000);
     }

@@ -4,10 +4,10 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven {url "https://raw.githubusercontent.com/ABXiaoLiuMang/mylibrary/master"}
+//        maven {url "https://raw.githubusercontent.com/ABXiaoLiuMang/mylibrary/master"}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath 'com.android.tools.build:gradle:3.4.1'
 
         //添加tinker-plugin的依赖
         classpath "com.tencent.bugly:tinker-support:1.1.5"
