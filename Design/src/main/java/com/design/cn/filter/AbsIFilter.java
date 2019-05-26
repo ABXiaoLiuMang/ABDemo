@@ -10,8 +10,8 @@ public abstract class AbsIFilter implements IFilter {
   protected  IFilter nextFilter;
 
     @Override
-    public boolean hasNext() {
-        return nextFilter != null;
+    public IFilter next() {
+        return nextFilter;
     }
 
     @Override

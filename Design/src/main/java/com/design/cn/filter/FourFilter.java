@@ -7,11 +7,10 @@ package com.design.cn.filter;
  */
 public class FourFilter extends AbsIFilter {
 
+
     @Override
     public void doSomething(String string) {
         System.out.println(getClass().getName()+"->"+string);
-        if(hasNext()){
-            nextFilter.doSomething(string);
-        }
+
     }
 }

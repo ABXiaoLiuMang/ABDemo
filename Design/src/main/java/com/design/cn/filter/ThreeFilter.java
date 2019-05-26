@@ -10,8 +10,6 @@ public class ThreeFilter extends AbsIFilter {
     @Override
     public void doSomething(String string) {
         System.out.println(getClass().getName()+"->"+string);
-        if(hasNext()){
-            nextFilter.doSomething(string);
-        }
+        nextFilter.doSomething(string);
     }
 }

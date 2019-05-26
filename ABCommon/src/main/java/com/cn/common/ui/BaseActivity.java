@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import com.cn.common.dialog.ABProgressDialog;
-import com.cn.common.senter.ABLifeRegistry;
 import com.cn.common.util.ExitUtils;
 import com.cn.common.view.StatusBarSuperUtil;
 import com.me.yokeyword.fragmentation.SupportActivity;
@@ -29,7 +28,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends SupportActiv
     protected Bundle bundle;
     protected Unbinder unbinder;
     private ABProgressDialog progressDialog;
-    private ABLifeRegistry mLifeRegistry = new ABLifeRegistry();
 
     protected abstract int getLayoutId();
 
@@ -101,7 +99,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends SupportActiv
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mLifeRegistry.clear();
         if (presenter != null){
             presenter.onDestroy();
         }
