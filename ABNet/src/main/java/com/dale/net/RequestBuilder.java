@@ -66,7 +66,6 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
     Lifecycle lifeCycle;
     public String cacheKey;
     ParamsDynamicHandler mParamsDynamicHandler;
-    boolean isRemoveCallback = true;
     boolean isCanBackNull = false;
     RequestBuilder(ServiceMethod<T, ?> serviceMethod, Object[] args) {
         this.serviceMethod = serviceMethod;
@@ -177,12 +176,6 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
     @Override
     public NetCall<T> setParamsDynamicHandler(ParamsDynamicHandler paramsDynamicHandler) {
         mParamsDynamicHandler = paramsDynamicHandler;
-        return this;
-    }
-
-    @Override
-    public NetCall<T> setRemoveCallbackEnble(boolean isRemove) {
-        this.isRemoveCallback = isRemove;
         return this;
     }
 

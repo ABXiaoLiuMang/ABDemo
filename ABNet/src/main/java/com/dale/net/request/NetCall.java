@@ -211,11 +211,6 @@ public interface NetCall<T> {
     NetCall<T> setParamsDynamicHandler(ParamsDynamicHandler paramsDynamicHandler);
 
     /**
-     * 当activity或者fragment移除时,是否移除callback
-     */
-    NetCall<T> setRemoveCallbackEnble(boolean isRemove);
-
-    /**
      * 返回的实体类是否可以为null 如果设置为true,当http code为200,responseBody为空时,会返回success(null)
      * @param isCan true 表示可以 默认是false
      */
