@@ -58,19 +58,9 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
     Request<T> request;
     public CookieJar cookieJar;
     public List<Interceptor> interceptors = new ArrayList<>();
-    /**
-     * 0 表示true,1表示false
-     */
-    public int followSslRedirects = -1;
-    /**
-     * 0 表示true,1表示false
-     */
-    public int followRedirects = -1;
+
     long retryPeriod = 0;
-    /**
-     * 0 表示true,1表示false
-     */
-    public int retryOnConnectionFailure = -1;
+
     /**
      * 是否过滤重复请求
      */
@@ -81,7 +71,6 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
     ParamsDynamicHandler mParamsDynamicHandler;
     boolean isRemoveCallback = true;
     boolean isCanBackNull = false;
-    public Dns dns;
     RequestBuilder(ServiceMethod<T, ?> serviceMethod, Object[] args) {
         this.serviceMethod = serviceMethod;
         this.args = args;
@@ -94,7 +83,6 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
         this.jsonConverter = ABNet.getConfig().getJsonConverter();
         this.cacheMode = ABNet.getConfig().getCacheMode();
         mParamsDynamicHandler = ABNet.getConfig().getParamsDynamicHandler();
-        dns = ABNet.getConfig().getDns();
         connectTimeout = ABNet.getConfig().getConnectTimeout();
         readTimeout = ABNet.getConfig().getReadTimeout();
         writeTimeout = ABNet.getConfig().getWriteTimeout();
@@ -204,12 +192,6 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
     @Override
     public NetCall<T> isCanBackNullEnble(boolean isCan) {
         isCanBackNull = isCan;
-        return this;
-    }
-
-    @Override
-    public NetCall<T> dns(Dns dns) {
-        this.dns = dns;
         return this;
     }
 
@@ -345,33 +327,6 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
             throw new NullPointerException("cookieJar == null");
         }
         this.cookieJar = cookieJar;
-        return this;
-    }
-
-    /**
-     * Configure this client to follow redirects from HTTPS to HTTP and from HTTP to HTTPS.
-     * <p>
-     * <p>If unset, protocol redirects will be followed. This is different than the built-in {@code
-     * HttpURLConnection}'s default.
-     */
-    @Override
-    public RequestBuilder<T> followSslRedirects(boolean followProtocolRedirects) {
-        this.followSslRedirects = followProtocolRedirects ? 0 : 1;
-        return this;
-    }
-
-    /**
-     * Configure this client to follow redirects. If unset, redirects be followed.
-     */
-    @Override
-    public RequestBuilder<T> followRedirects(boolean followRedirects) {
-        this.followRedirects = followRedirects ? 0 : 1;
-        return this;
-    }
-
-    @Override
-    public RequestBuilder<T> retryOnConnectionFailure(boolean retryOnConnectionFailure) {
-        this.retryOnConnectionFailure = retryOnConnectionFailure ? 0 : 1;
         return this;
     }
 

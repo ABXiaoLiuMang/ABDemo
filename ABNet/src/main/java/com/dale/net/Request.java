@@ -8,11 +8,11 @@ import com.dale.net.api.IApiService;
 import com.dale.net.bean.RxResponse;
 import com.dale.net.callback.OnCallBack;
 import com.dale.net.converter.DataConverter;
-import com.dale.net.exception.ErrorMessage;
 import com.dale.net.exception.ABNetCancelException;
 import com.dale.net.exception.ABNetException;
+import com.dale.net.exception.ErrorMessage;
 import com.dale.net.manager.RetrofitManager;
-import com.dale.net.utils.NetJsonUtils;
+import com.dale.net.utils.JsonUtil;
 import com.dale.net.utils.NetLog;
 import com.dale.net.utils.StringUtils;
 
@@ -344,7 +344,7 @@ public class Request<T> {
     private void printLog() {
         if (ABNet.getConfig().isNeedLog()) {
             NetLog.i(String.format("****************准备 发送%s请求  %s%s**************************\n请求参数: %s",
-                    requestBuilder.method, requestBuilder.baseUrl, requestBuilder.url, requestBuilder.oparams == null ? toStringParamsMap() : NetJsonUtils.toJson(requestBuilder.oparams)));
+                    requestBuilder.method, requestBuilder.baseUrl, requestBuilder.url, requestBuilder.oparams == null ? toStringParamsMap() : JsonUtil.toJson(requestBuilder.oparams)));
         }
     }
 
@@ -488,7 +488,7 @@ public class Request<T> {
         RequestBody request;
         //根据传的参数,判断使用哪种mediaType请求
         if (requestBuilder.oparams != null) {
-            request = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), NetJsonUtils.toJson(requestBuilder.oparams));
+            request = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), JsonUtil.toJson(requestBuilder.oparams));
             requestBuilder.headers.put("Content-Type", "application/json");
         } else {
             request = RequestBody.create(requestBuilder.mMediaType, createParams());

@@ -36,8 +36,7 @@ public class RetrofitManager {
             return client;
         }
         client = createHttpClient(config,config.getCookieJar(),config.getInterceptors(),
-                -1,-1,-1,
-                config.getReadTimeout(),config.getConnectTimeout(),config.getWriteTimeout(),config.getDns());
+                config.getReadTimeout(),config.getConnectTimeout(),config.getWriteTimeout());
         sClientMap.put(clientKey,client);
         return client;
     }
@@ -49,11 +48,9 @@ public class RetrofitManager {
             NetLog.i(request.getBaseUrl() + request.requestBuilder.url + "使用缓存中的client");
             return client;
         }
-        //create new retrofit object and put retrofit to retrofitMap
+
         client = createHttpClient(config,request.requestBuilder.cookieJar,request.requestBuilder.interceptors,
-                request.requestBuilder.followRedirects,request.requestBuilder.followSslRedirects,request.requestBuilder.retryOnConnectionFailure,
-                request.requestBuilder.readTimeout,request.requestBuilder.connectTimeout,request.requestBuilder.writeTimeout
-                ,request.requestBuilder.dns);
+                request.requestBuilder.readTimeout,request.requestBuilder.connectTimeout,request.requestBuilder.writeTimeout);
         sClientMap.put(clientKey,client);
         NetLog.i(request.getBaseUrl() + request.requestBuilder.url +"使用新创建的client");
         return client;
@@ -67,7 +64,7 @@ public class RetrofitManager {
             NetLog.i(request.getBaseUrl() + request.requestBuilder.url +"使用缓存中的retrofit");
             return httpBean.retrofit;
         }
-        //create new retrofit object and put retrofit to retrofitMap
+
         OkHttpClient client = getClient(request,config);
         httpBean = createHttpBean(client,request.getBaseUrl());
         retrofitMap.put(request.getBaseUrl(),httpBean);
@@ -77,11 +74,10 @@ public class RetrofitManager {
     }
 
     private static OkHttpClient createHttpClient(NetConfigImpl config, CookieJar cookieJar, List<Interceptor> interceptors,
-                                                 int followRedirects, int followSslRedirects, int retryOnConnectionFailure,
-                                                 int readTimeout, int connectTimeout, int writeTimeout, Dns dns){
+                                                 int readTimeout, int connectTimeout, int writeTimeout){
         OkHttpClient.Builder httpBuilder = new OkHttpClient.Builder();
         if (config.isNeedLog()){
-            httpBuilder.addInterceptor(getLogInterceptor(config));
+            httpBuilder.addInterceptor(new ABLoggingInterceptor());
         }
 
         if (config.getSslSocketFactory() != null && config.getTrustManager() != null){
@@ -94,22 +90,6 @@ public class RetrofitManager {
 
         for (Interceptor interceptor : interceptors) {
             httpBuilder.addInterceptor(interceptor);
-        }
-
-        if (followRedirects >= 0){
-            httpBuilder.followRedirects(followRedirects == 0);
-        }
-
-        if (followSslRedirects >= 0){
-            httpBuilder.followSslRedirects(followSslRedirects == 0);
-        }
-
-        if (retryOnConnectionFailure >= 0){
-            httpBuilder.retryOnConnectionFailure(retryOnConnectionFailure == 0);
-        }
-
-        if (dns != null){
-           httpBuilder.dns(dns);
         }
 
         return httpBuilder
@@ -147,7 +127,6 @@ public class RetrofitManager {
                     -1,
                     -1,
                     -1,
-                    config.getDns() != null ? config.getDns().getClass().getName() : "",
                     sslFactory != null ? sslFactory.getClass().getName(): "",
                     trustManager != null ? trustManager.getClass().getName() : ""
             );
@@ -176,10 +155,6 @@ public class RetrofitManager {
                     builder.readTimeout,
                     builder.writeTimeout,
                     builder.cookieJar != null ? builder.cookieJar.getClass().getName() : "",
-                    builder.followRedirects,
-                    builder.followSslRedirects,
-                    builder.retryOnConnectionFailure,
-                    builder.dns != null ? builder.dns.getClass().getName() : "",
                     sslFactory != null ? sslFactory.getClass().getName(): "",
                     trustManager != null ? trustManager.getClass().getName() : "");
 
@@ -197,14 +172,5 @@ public class RetrofitManager {
             NetLog.e(e.toString());
         }
         return NetCache.key("default_client");
-    }
-
-    private static Interceptor getLogInterceptor(NetConfigImpl config) {
-        Interceptor interceptor = config.getLogInterceptor();
-        if (interceptor == null){
-            //此处缺少默认日志拦截器
-            interceptor = new ABLoggingInterceptor();
-        }
-        return interceptor;
     }
 }

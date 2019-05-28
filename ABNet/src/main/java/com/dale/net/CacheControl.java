@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.dale.net.cache.CacheMode;
 import com.dale.net.cache.NetCache;
 import com.dale.net.exception.ErrorMessage;
-import com.dale.net.utils.NetJsonUtils;
+import com.dale.net.utils.JsonUtil;
 import com.dale.net.utils.StringUtils;
 
 import java.lang.reflect.Type;
@@ -19,9 +19,9 @@ class CacheControl {
                 StringUtils.buffer(request.getBaseUrl(),
                         request.getUrl(),
                         request.requestBuilder.cacheTime,
-                        NetJsonUtils.toJson(request.requestBuilder.oparams),
-                        NetJsonUtils.toJson(request.requestBuilder.allStringParams),
-                        NetJsonUtils.toJson(request.requestBuilder.headers),
+                        JsonUtil.toJson(request.requestBuilder.oparams),
+                        JsonUtil.toJson(request.requestBuilder.allStringParams),
+                        JsonUtil.toJson(request.requestBuilder.headers),
                         request.requestBuilder.connectTimeout,
                         request.requestBuilder.readTimeout,
                         request.requestBuilder.writeTimeout,
@@ -109,7 +109,7 @@ class CacheControl {
         } else {
             if (request.callback != null && !request.isCancel) {
                 try {
-                    request.callback.success(request, (T) NetJsonUtils.fromJson(cache, respType));
+                    request.callback.success(request, (T) JsonUtil.fromJson(cache, respType));
                 } catch (Exception e) {
                     ErrorMessage errorMessage = request.createError(
                             ErrorMessage.RESPONSE_HANDLER_ERROR,

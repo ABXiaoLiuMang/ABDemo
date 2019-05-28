@@ -164,26 +164,6 @@ public interface NetCall<T> {
     NetCall<T> cookieJar(CookieJar cookieJar);
 
     /**
-     *
-     * Configure this client to follow redirects from HTTPS to HTTP and from HTTP to HTTPS.
-     * <p>
-     * <p>If unset, protocol redirects will be followed. This is different than the built-in {@code
-     * HttpURLConnection}'s default.
-     */
-    NetCall<T> followSslRedirects(boolean followProtocolRedirects);
-
-    /**
-     * Configure this client to follow redirects. If unset, redirects be followed.
-     */
-    NetCall<T> followRedirects(boolean followRedirects);
-
-    /**
-     * 请求失败后,是否要重试,默认false
-     * @param retryOnConnectionFailure true 表示要重试.
-     */
-    NetCall<T> retryOnConnectionFailure(boolean retryOnConnectionFailure);
-
-    /**
      * 为此请求单独设置一个拦截器
      */
     NetCall<T> addInterceptor(Interceptor interceptor);
@@ -248,9 +228,4 @@ public interface NetCall<T> {
      */
     NetCall<T> isCanBackNullEnble(boolean isCan);
 
-    /**
-     * dns
-     * @param dns dns
-     */
-    NetCall<T> dns(Dns dns);
 }

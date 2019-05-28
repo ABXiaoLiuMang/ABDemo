@@ -39,12 +39,10 @@ public class NetConfigImpl implements NetConfig {
     private int cacheTime = 0;
     private int retryCount = 0;
     private String baseUrl;
-    private Interceptor logInterceptor;
     private ABNetGlobalExceptionHandler globalExceptionHandler;
     private List<Interceptor> interceptors = new ArrayList<>();
     private CookieJar cookieJar;
     private ParamsDynamicHandler mParamsDynamicHandler;
-    private Dns dns;
 
     NetConfigImpl() {
     }
@@ -131,11 +129,6 @@ public class NetConfigImpl implements NetConfig {
         return this;
     }
 
-    @Override
-    public NetConfig logInterceptor(Interceptor interceptor) {
-        this.logInterceptor = interceptor;
-        return this;
-    }
 
     @Override
     public NetConfig setHttpGlobalExceptionHandler(ABNetGlobalExceptionHandler globalExceptionHandler) {
@@ -154,13 +147,6 @@ public class NetConfigImpl implements NetConfig {
     public NetConfig cookieJar(CookieJar cookieJar) {
         if (cookieJar == null) throw new NullPointerException("cookieJar is null");
         this.cookieJar = cookieJar;
-        return this;
-    }
-
-    @Override
-    public NetConfig dns(Dns dns) {
-        if (dns == null) throw new NullPointerException("dns is null");
-        this.dns = dns;
         return this;
     }
 
@@ -232,15 +218,8 @@ public class NetConfigImpl implements NetConfig {
         return baseUrl;
     }
 
-    public Interceptor getLogInterceptor() {
-        return logInterceptor;
-    }
-
     public ParamsDynamicHandler getParamsDynamicHandler() {
         return mParamsDynamicHandler;
     }
 
-    public Dns getDns() {
-        return dns;
-    }
 }

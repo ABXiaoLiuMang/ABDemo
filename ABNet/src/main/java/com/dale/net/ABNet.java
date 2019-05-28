@@ -121,14 +121,6 @@ public class ABNet {
     /**
      * 获取共用的OkHttpClient
      */
-    @Deprecated
-    public static OkHttpClient getClient(String baseUrl){
-        return RetrofitManager.getClient(getConfig());
-    }
-
-    /**
-     * 获取共用的OkHttpClient
-     */
     public static OkHttpClient getClient(){
         return RetrofitManager.getClient(getConfig());
     }

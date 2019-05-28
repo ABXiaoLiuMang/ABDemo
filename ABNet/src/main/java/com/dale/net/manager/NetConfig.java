@@ -85,11 +85,6 @@ public interface NetConfig {
     NetConfig baseUrl(String baseUrl);
 
     /**
-     * desc: 日志拦截器
-     */
-    NetConfig logInterceptor(Interceptor interceptor);
-
-    /**
      * desc: 异常时,全局处理
      */
     NetConfig setHttpGlobalExceptionHandler(ABNetGlobalExceptionHandler globalExceptionHandler);
@@ -103,11 +98,5 @@ public interface NetConfig {
      * desc: 设置全局cookie
      */
     NetConfig cookieJar(CookieJar cookieJar);
-
-    /**
-     * 是否自定义dns
-     * @param dns dns 实例
-     */
-    NetConfig dns(Dns dns);
 
 }

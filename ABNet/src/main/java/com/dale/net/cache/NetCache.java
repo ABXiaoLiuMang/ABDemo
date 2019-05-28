@@ -7,8 +7,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 
 import com.dale.net.ABNet;
+import com.dale.net.utils.JsonUtil;
 import com.dale.net.utils.Md5Utils;
-import com.dale.net.utils.NetJsonUtils;
 import com.dale.net.utils.NetLog;
 import com.dale.net.utils.StringUtils;
 import com.jakewharton.disklrucache.NetDiskLruCache;
@@ -204,7 +204,7 @@ public class NetCache {
                 return;
             }
 
-            String cacheString = NetJsonUtils.toJson(cacheEntity);
+            String cacheString = JsonUtil.toJson(cacheEntity);
             OutputStream os = editor.newOutputStream(0);
             writer = new BufferedWriter(new OutputStreamWriter(os));
             writer.write(cacheString);
@@ -265,7 +265,7 @@ public class NetCache {
         }
         try {
             String cache = inputStream2String(inputStream);
-            Entity cacheEntity = NetJsonUtils.fromJson(cache,Entity.class);
+            Entity cacheEntity = JsonUtil.fromJson(cache,Entity.class);
             if (cacheEntity.isOverdue()){
                 remove(key);
                 return null;
