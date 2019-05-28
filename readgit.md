@@ -8,6 +8,8 @@ git checkout master
 git merge dev
 git push -u origin master
 
+$ git push -u origin master -f 强制覆盖
+
 二、当master代码改动了，需要更新开发分支（dev）上的代码
 
 git checkout master 
