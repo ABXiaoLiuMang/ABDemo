@@ -17,8 +17,6 @@ import okhttp3.Response;
 
 public abstract class OnCommonCallback<T> extends BaseCallBack implements Subscriber<RxResponse<BaseEntity<T>>> {
 
-    private okhttp3.Request mOkRequest;
-    private Response mOkResponse;
     public OnCommonCallback() {
         super();
     }

@@ -45,7 +45,6 @@ import retrofit2.Retrofit;
  * Desc:请求体
  **/
 public class Request<T> {
-    private transient int currRetryCount = 0;
     transient boolean isCancel = false;
 
     transient String cacheKey;
@@ -416,26 +415,6 @@ public class Request<T> {
         } else {
             return getJsonConverter().converter(result, respType);
         }
-    }
-
-
-    private boolean needRetry(boolean needRetry) {
-        if (!needRetry) {
-            return false;
-        }
-
-        if (requestBuilder.retryCount > currRetryCount) {
-            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    send(Request.this.callback);
-                    currRetryCount++;
-                }
-            }, requestBuilder.retryPeriod);
-            return true;
-        }
-
-        return false;
     }
 
     /**

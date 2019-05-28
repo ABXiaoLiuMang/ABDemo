@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.apkfuns.logutils.LogUtils;
 import com.cn.common.ui.BaseActivity;
@@ -28,6 +29,7 @@ public class TestNetFragment extends BaseFragment<TestNetPresenter> implements T
 
     int i = 0;
     ProgressBar progressBar;
+    TextView tv_result;
 
     public static TestNetFragment newInstance() {
 
@@ -46,6 +48,7 @@ public class TestNetFragment extends BaseFragment<TestNetPresenter> implements T
 
     @Override
     protected void initViewsAndEvents() {
+        tv_result = rootView.findViewById(R.id.tv_result);
           progressBar = rootView.findViewById(R.id.progressBar);
         rootView.findViewById(R.id.btn_postUrl).setOnClickListener(new View.OnClickListener() {
               @Override
@@ -100,6 +103,7 @@ public class TestNetFragment extends BaseFragment<TestNetPresenter> implements T
     @Override
     public void resultSucc(String result) {
         LogUtils.d("result:"+result);
+        tv_result.setText("->"+result);
     }
 
     @Override

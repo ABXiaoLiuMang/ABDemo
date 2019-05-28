@@ -6,12 +6,16 @@ import android.os.Environment;
 import com.cn.common.ui.BasePresenter;
 import com.cn.common.view.ABToast;
 import com.dale.net.ABNet;
+import com.dale.net.Request;
+import com.dale.net.cache.CacheMode;
 import com.dale.net.callback.ABError;
+import com.dale.net.callback.OnCallBack;
 import com.dale.net.callback.OnFileCallback;
 import com.dale.net.download.DownloadCallback;
 import com.dale.net.download.DownloadRequest;
 import com.dale.net.exception.ErrorMessage;
 import com.net.ApiSource;
+import com.net.BaseEntity;
 import com.net.LoginBean;
 import com.net.OnCommonCallback;
 import com.net.TestBean;
@@ -32,7 +36,21 @@ public class TestNetPresenter extends BasePresenter<TestNetFragment> implements 
     public void testPostUrl() {
         String name = getView().getUserName();
         String pass = getView().getPassWord();
-        ApiSource.testPostUrl(name,pass)
+        ApiSource.testPostUrl()
+                .params("username",name)
+                .params("password",pass)
+//                .send(new OnCallBack<BaseEntity<LoginBean>>() {
+//                    @Override
+//                    public void success(Request<BaseEntity<LoginBean>> request, BaseEntity<LoginBean> loginBeanBaseEntity) throws Exception {
+//
+//                    }
+//
+//                    @Override
+//                    public void error(Request<BaseEntity<LoginBean>> request, ErrorMessage error, BaseEntity<LoginBean> cache) {
+//
+//                    }
+//                });
+                .cacheMode(CacheMode.IF_NONE_CACHE_REQUEST)
                 .getRxResult()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new OnCommonCallback<LoginBean>(){
@@ -53,7 +71,8 @@ public class TestNetPresenter extends BasePresenter<TestNetFragment> implements 
     public void testPost() {
         String name = getView().getUserName();
         String pass = getView().getPassWord();
-        ApiSource.testPost(name,pass).subscribe(new OnCommonCallback<LoginBean>() {
+        ApiSource.testPost(name,pass)
+                .subscribe(new OnCommonCallback<LoginBean>() {
             @Override
             public void fails(ABError error) {
                 getView().resultSucc("err testPost:"+ error.errorMessage);
@@ -68,7 +87,10 @@ public class TestNetPresenter extends BasePresenter<TestNetFragment> implements 
 
     @Override
     public void testGet() {
-        ApiSource.testGet().getRxResult().subscribe(new OnCommonCallback<TestBean>() {
+        ApiSource.testGet()
+                .lifecycle(getFragment())
+                .getRxResult()
+                .subscribe(new OnCommonCallback<TestBean>() {
             @Override
             public void fails(ABError error) {
                 getView().resultSucc("err testGet:"+ error.errorMessage);

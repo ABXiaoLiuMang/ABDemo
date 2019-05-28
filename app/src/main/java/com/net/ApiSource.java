@@ -19,12 +19,10 @@ import static com.dale.net.callback.ABStatusCode.HttpStatus.REQUEST_PARAMS_ERROR
  */
 public class ApiSource {
 
-    public static NetCall<BaseEntity<LoginBean>> testPostUrl(String userName,String passWord) {
+    public static NetCall<BaseEntity<LoginBean>> testPostUrl() {
         String path = ABNet.getConfig().getBaseUrl() + "api/v1/authtoken";
         return ABNet.create(Api.class)
                 .testPostUrl(path)
-                .params("username",userName)
-                .params("password",passWord)
                 .isSingleEnable(true);
     }
 
