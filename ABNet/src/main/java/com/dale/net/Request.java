@@ -374,14 +374,6 @@ public class Request<T> {
             return;
         }
 
-        boolean isRetry = true;
-        if (ABNet.getConfig().getGlobalExceptionHandler() != null) {
-            isRetry = ABNet.getConfig().getGlobalExceptionHandler().needRetry(this, errorMessage);
-        }
-
-        if (needRetry(isRetry)) {
-            return;
-        }
         if (callback != null && !isCancel) {
             try {
                 callback.error(this, errorMessage, getRealResponseBody(cache));
@@ -394,10 +386,6 @@ public class Request<T> {
             }
         }
 
-
-        if (ABNet.getConfig().getGlobalExceptionHandler() != null) {
-            ABNet.getConfig().getGlobalExceptionHandler().exception(this, errorMessage);
-        }
     }
 
 

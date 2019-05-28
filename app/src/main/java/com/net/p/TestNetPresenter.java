@@ -15,7 +15,7 @@ import com.net.ApiSource;
 import com.net.LoginBean;
 import com.net.OnCommonCallback;
 import com.net.TestBean;
-import com.net.TestNetActivity;
+import com.net.TestNetFragment;
 
 import java.io.File;
 
@@ -26,7 +26,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
  * create on 2019/5/20
  * description:
  */
-public class TestNetPresenter extends BasePresenter<TestNetActivity> implements TestNetContract.IBindPresenter{
+public class TestNetPresenter extends BasePresenter<TestNetFragment> implements TestNetContract.IBindPresenter{
 
     @Override
     public void testPostUrl() {

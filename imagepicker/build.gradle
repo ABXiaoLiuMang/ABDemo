@@ -40,7 +40,7 @@ dependencies {
     compileOnly rootDependencies["appcompat_v7"]
     compileOnly rootDependencies["design"]
     compileOnly rootDependencies["constraint_layout"]
-    compileOnly rootDependencies["PhotoView"]
+    implementation project(path: ':photoview')
 }
 
 //publish {

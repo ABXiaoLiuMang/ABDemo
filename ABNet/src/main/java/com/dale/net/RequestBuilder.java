@@ -11,7 +11,6 @@ import android.text.TextUtils;
 
 import com.dale.net.bean.RxResponse;
 import com.dale.net.cache.CacheMode;
-import com.dale.net.callback.OnBaseUrlErrorListener;
 import com.dale.net.callback.OnCallBack;
 import com.dale.net.converter.DataConverter;
 import com.dale.net.interceptor.ParamsDynamicHandler;
@@ -30,7 +29,6 @@ import java.util.Map;
 
 import io.reactivex.Flowable;
 import okhttp3.CookieJar;
-import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 
@@ -54,7 +52,6 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
     public int writeTimeout;
     DataConverter jsonConverter;
     public long intervalTime;
-    OnBaseUrlErrorListener onBaseUrlErrorListener;
     Request<T> request;
     public CookieJar cookieJar;
     public List<Interceptor> interceptors = new ArrayList<>();
@@ -223,12 +220,6 @@ public class RequestBuilder<T> implements NetCall<T>, LifecycleObserver {
     @Override
     public RequestBuilder<T> isSingleEnable(boolean isSingleEnable) {
         this.isSingleEnable = isSingleEnable;
-        return this;
-    }
-
-    @Override
-    public RequestBuilder<T> setOnBaseUrlErrorListener(OnBaseUrlErrorListener onBaseUrlErrorListener) {
-        this.onBaseUrlErrorListener = onBaseUrlErrorListener;
         return this;
     }
 

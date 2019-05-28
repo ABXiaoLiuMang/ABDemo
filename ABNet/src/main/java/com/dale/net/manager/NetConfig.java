@@ -3,14 +3,12 @@ package com.dale.net.manager;
 
 import com.dale.net.cache.CacheMode;
 import com.dale.net.converter.DataConverter;
-import com.dale.net.exception.ABNetGlobalExceptionHandler;
 import com.dale.net.interceptor.ParamsDynamicHandler;
 
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 
 import okhttp3.CookieJar;
-import okhttp3.Dns;
 import okhttp3.Interceptor;
 
 /**
@@ -83,11 +81,6 @@ public interface NetConfig {
      * desc: 全局默认使用base url
      */
     NetConfig baseUrl(String baseUrl);
-
-    /**
-     * desc: 异常时,全局处理
-     */
-    NetConfig setHttpGlobalExceptionHandler(ABNetGlobalExceptionHandler globalExceptionHandler);
 
     /**
      * desc: 拦截器

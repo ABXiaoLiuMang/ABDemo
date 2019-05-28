@@ -4,7 +4,6 @@ package com.dale.net;
 import com.dale.net.cache.CacheMode;
 import com.dale.net.converter.DataConverter;
 import com.dale.net.converter.GsonJsonConverter;
-import com.dale.net.exception.ABNetGlobalExceptionHandler;
 import com.dale.net.interceptor.ParamsDynamicHandler;
 import com.dale.net.manager.NetConfig;
 import com.dale.net.utils.NetLog;
@@ -18,7 +17,6 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 
 import okhttp3.CookieJar;
-import okhttp3.Dns;
 import okhttp3.Interceptor;
 
 
@@ -39,7 +37,6 @@ public class NetConfigImpl implements NetConfig {
     private int cacheTime = 0;
     private int retryCount = 0;
     private String baseUrl;
-    private ABNetGlobalExceptionHandler globalExceptionHandler;
     private List<Interceptor> interceptors = new ArrayList<>();
     private CookieJar cookieJar;
     private ParamsDynamicHandler mParamsDynamicHandler;
@@ -131,13 +128,6 @@ public class NetConfigImpl implements NetConfig {
 
 
     @Override
-    public NetConfig setHttpGlobalExceptionHandler(ABNetGlobalExceptionHandler globalExceptionHandler) {
-        this.globalExceptionHandler = globalExceptionHandler;
-
-        return this;
-    }
-
-    @Override
     public NetConfig addInterceptor(Interceptor interceptor) {
         interceptors.add(interceptor);
         return this;
@@ -168,10 +158,6 @@ public class NetConfigImpl implements NetConfig {
             jsonConverter = new GsonJsonConverter();
         }
         return jsonConverter;
-    }
-
-    public ABNetGlobalExceptionHandler getGlobalExceptionHandler() {
-        return globalExceptionHandler;
     }
 
     public SSLSocketFactory getSslSocketFactory() {

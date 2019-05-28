@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentActivity;
 import com.dale.net.Request;
 import com.dale.net.bean.RxResponse;
 import com.dale.net.cache.CacheMode;
-import com.dale.net.callback.OnBaseUrlErrorListener;
 import com.dale.net.callback.OnCallBack;
 import com.dale.net.converter.DataConverter;
 import com.dale.net.interceptor.ParamsDynamicHandler;
@@ -19,7 +18,6 @@ import java.util.Map;
 
 import io.reactivex.Flowable;
 import okhttp3.CookieJar;
-import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 
@@ -95,11 +93,6 @@ public interface NetCall<T> {
      * @param intervalTime 轮询请求的间隔
      */
     NetCall<T> baseUrls(String[] baseUrls, long intervalTime);
-
-    /**
-     * 多域名轮询请求时,报异常的域名监听
-     */
-    NetCall<T> setOnBaseUrlErrorListener(OnBaseUrlErrorListener onBaseUrlErrorListener);
 
     /**
      * 为这个请求单独设置一个json解析器,

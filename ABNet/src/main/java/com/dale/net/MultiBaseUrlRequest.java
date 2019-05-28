@@ -4,11 +4,11 @@ import com.dale.net.callback.OnCallBack;
 import com.dale.net.exception.ErrorMessage;
 import com.dale.net.request.NetCall;
 import com.dale.net.utils.NetLog;
-import com.dale.net.utils.ThreadFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 
@@ -43,7 +43,7 @@ public class MultiBaseUrlRequest<T> extends Request<T> {
             baseUrlSize = requestBuilder.baseUrls.size();
             errorCount = 0;
             childResquestList.clear();
-            timerExecutor = ThreadFactory.newTimeThreadPool(2);
+            timerExecutor = new ScheduledThreadPoolExecutor(2);
             timerTask = new ChildRequestTask();
             timerExecutor.scheduleWithFixedDelay(timerTask,0,requestBuilder.intervalTime, TimeUnit.MILLISECONDS);
         }
@@ -92,10 +92,6 @@ public class MultiBaseUrlRequest<T> extends Request<T> {
                     errorMessage.setUrl(request.requestBuilder.baseUrl, request.requestBuilder.url);
                     NetLog.i(String.format("(%s%s) 请求失败 ： %s  , errorCount : %s : baseUrls size : %s",
                             request.requestBuilder.baseUrl, request.requestBuilder.url, errorMessage.getError().toString(), errorCount, requestBuilder.baseUrls.size()));
-                    if (requestBuilder.onBaseUrlErrorListener != null) {
-                        isIntercept = requestBuilder.onBaseUrlErrorListener.onError(errorMessage, errorMessage.getCode());
-                    }
-
                     boolean isMaxErrorCount = errorCount >= requestBuilder.baseUrls.size() && !isFinish;
                     if (isMaxErrorCount || isIntercept) {
                         isFinish = true;

@@ -38,8 +38,6 @@ dependencies {
     //系统库
     implementation rootDependencies["appcompat_v7"]
 
-    implementation rootDependencies["PhotoView"]
-    implementation rootDependencies["PickerView"]
     implementation rootDependencies["MagicIndicator"]
 
 }

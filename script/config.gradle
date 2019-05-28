@@ -11,6 +11,7 @@ ext {
 
     dependencies = [
             junit                  : 'junit:junit:4.12',            //单元测试包
+            appcompat_v4           : 'com.android.support:appcompat-v4:' + android.androidLibVersion,   //官方V7包
             appcompat_v7           : 'com.android.support:appcompat-v7:' + android.androidLibVersion,   //官方V7包
             cardview_v7            : 'com.android.support:cardview-v7:' + android.androidLibVersion,    //官方cardView包
             design                 : 'com.android.support:design:' + android.androidLibVersion,         //官方MD设计包
@@ -49,7 +50,7 @@ ext {
             bga_baseadapter        : 'cn.bingoogolapple:bga-baseadapter:1.2.9@aar',
             zxing                  : 'com.google.zxing:core:3.3.3',//https://github.com/bingoogolapple/BGAQRCode-Android
             PhotoView              : 'com.github.chrisbanes.photoview:library:1.2.4', //    https://github.com/chrisbanes/PhotoView
-            PickerView             : 'com.contrarywind:Android-PickerView:4.1.3',//   https://github.com/Bigkoo/Android-PickerView
+//            PickerView             : 'com.contrarywind:Android-PickerView:4.1.3',//   https://github.com/Bigkoo/Android-PickerView
             MagicIndicator         : 'com.github.hackware1993:MagicIndicator:1.5.0',
             logutils               : 'com.apkfuns.logutils:library:1.6.0',
 

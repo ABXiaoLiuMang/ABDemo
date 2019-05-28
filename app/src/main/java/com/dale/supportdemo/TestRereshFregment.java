@@ -15,6 +15,7 @@ import com.cn.common.view.ABToast;
 import com.dale.demo.R;
 import com.dale.supportdemo.p.TestContract;
 import com.dale.supportdemo.p.TestPresenter;
+import com.net.TestNetFragment;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 import java.util.ArrayList;
@@ -118,6 +119,7 @@ public class TestRereshFregment extends ABRefreshBaseFragment<String, TestPresen
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         String itemString = (String) adapter.getItem(position);
-        ABToast.show(itemString);
+//        ABToast.show(itemString);
+        startFragment(TestNetFragment.newInstance());
     }
 }

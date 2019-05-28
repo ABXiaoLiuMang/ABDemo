@@ -109,6 +109,7 @@ dependencies {
 
 
     //系统库
+//    implementation rootDependencies["appcompat_v4"]
     implementation rootDependencies["appcompat_v7"]
     implementation rootDependencies["constraint_layout"]
     implementation rootDependencies["recyclerview"]
@@ -159,6 +160,7 @@ dependencies {
     implementation project(path: ':ABView')
     implementation project(path: ':ABSupport')
     implementation project(path: ':ABCommon')
+    implementation project(path: ':imagepicker')
 
 }
 
