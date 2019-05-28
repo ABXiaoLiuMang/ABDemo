@@ -48,7 +48,7 @@ ext {
             photopicker            : 'cn.bingoogolapple:bga-photopicker:1.2.8@aar',
             bga_baseadapter        : 'cn.bingoogolapple:bga-baseadapter:1.2.9@aar',
             zxing                  : 'com.google.zxing:core:3.3.3',//https://github.com/bingoogolapple/BGAQRCode-Android
-            PhotoView              : 'com.github.chrisbanes:PhotoView:2.0.0', //    https://github.com/chrisbanes/PhotoView
+            PhotoView              : 'com.github.chrisbanes.photoview:library:1.2.4', //    https://github.com/chrisbanes/PhotoView
             PickerView             : 'com.contrarywind:Android-PickerView:4.1.3',//   https://github.com/Bigkoo/Android-PickerView
             MagicIndicator         : 'com.github.hackware1993:MagicIndicator:1.5.0',
             logutils               : 'com.apkfuns.logutils:library:1.6.0',
