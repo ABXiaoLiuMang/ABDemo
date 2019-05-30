@@ -1,12 +1,12 @@
 package com.dale.net.request;
 
-import android.support.annotation.Nullable;
+        import android.support.annotation.Nullable;
 
-import com.dale.net.utils.Utils;
+        import com.dale.net.utils.Utils;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+        import java.lang.annotation.Annotation;
+        import java.lang.reflect.ParameterizedType;
+        import java.lang.reflect.Type;
 
 
 
