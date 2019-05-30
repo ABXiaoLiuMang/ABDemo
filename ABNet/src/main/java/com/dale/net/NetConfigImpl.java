@@ -208,4 +208,26 @@ public class NetConfigImpl implements NetConfig {
         return mParamsDynamicHandler;
     }
 
+
+    @Override
+    public String toString() {
+        return "NetConfigImpl{" +
+                "needLog=" + needLog +
+                ", jsonConverter=" + jsonConverter +
+                ", sslSocketFactory=" + sslSocketFactory +
+                ", trustManager=" + trustManager +
+                ", connectTimeout=" + connectTimeout +
+                ", readTimeout=" + readTimeout +
+                ", writeTimeout=" + writeTimeout +
+                ", paramsMap=" + paramsMap +
+                ", headers=" + headers +
+                ", cacheMode=" + cacheMode +
+                ", cacheTime=" + cacheTime +
+                ", retryCount=" + retryCount +
+                ", baseUrl='" + baseUrl + '\'' +
+                ", interceptors=" + interceptors +
+                ", cookieJar=" + cookieJar +
+                ", mParamsDynamicHandler=" + mParamsDynamicHandler +
+                '}';
+    }
 }

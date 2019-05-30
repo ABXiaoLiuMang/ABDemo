@@ -42,7 +42,7 @@ public class RetrofitManager {
     }
 
     private static OkHttpClient getClient(Request<?> request, NetConfigImpl config){
-        String clientKey = getClientKey(config,request);
+        String clientKey = getClientKey(config);
         OkHttpClient client = sClientMap.get(clientKey);
         if (client != null) {
             NetLog.i(request.getBaseUrl() + request.requestBuilder.url + "使用缓存中的client");
@@ -57,7 +57,7 @@ public class RetrofitManager {
     }
 
     public static Retrofit getRetrofit(Request<?> request, NetConfigImpl config) {
-        String clientKey = getClientKey(config,request);
+        String clientKey = getClientKey(config);
         HttpBean httpBean = retrofitMap.get(request.getBaseUrl());
 
         if (httpBean != null) {
@@ -112,65 +112,7 @@ public class RetrofitManager {
         return new HttpBean(retrofit,client);
     }
 
-
     private static String getClientKey(NetConfigImpl config){
-        try {
-
-            SSLSocketFactory sslFactory = config.getSslSocketFactory();
-            X509TrustManager trustManager = config.getTrustManager();
-
-            String bufferKey = StringUtils.buffer(
-                    config.getConnectTimeout(),
-                    config.getReadTimeout(),
-                    config.getWriteTimeout(),
-                    config.getCookieJar() != null ? config.getCookieJar().getClass().getName() : "",
-                    -1,
-                    -1,
-                    -1,
-                    sslFactory != null ? sslFactory.getClass().getName(): "",
-                    trustManager != null ? trustManager.getClass().getName() : ""
-            );
-
-            if (config.getInterceptors() != null){
-                for (Interceptor interceptor : config.getInterceptors()) {
-                    bufferKey = StringUtils.buffer(bufferKey,interceptor.getClass().getName());
-                }
-            }
-
-            return NetCache.key(bufferKey);
-        }catch (Exception e){
-            NetLog.e(e.toString());
-        }
-        return NetCache.key("default_client");
-    }
-
-    private static String getClientKey(NetConfigImpl config, Request<?> request){
-        try {
-            RequestBuilder<?> builder = request.requestBuilder;
-            SSLSocketFactory sslFactory = config.getSslSocketFactory();
-            X509TrustManager trustManager = config.getTrustManager();
-
-            String bufferKey = StringUtils.buffer(
-                    builder.connectTimeout,
-                    builder.readTimeout,
-                    builder.writeTimeout,
-                    builder.cookieJar != null ? builder.cookieJar.getClass().getName() : "",
-                    sslFactory != null ? sslFactory.getClass().getName(): "",
-                    trustManager != null ? trustManager.getClass().getName() : "");
-
-
-            if (builder.interceptors != null){
-                for (Interceptor interceptor : builder.interceptors) {
-                    bufferKey = StringUtils.buffer(bufferKey,interceptor.getClass().getName());
-                }
-            }
-
-
-
-            return NetCache.key(bufferKey);
-        }catch (Exception e){
-            NetLog.e(e.toString());
-        }
-        return NetCache.key("default_client");
+        return NetCache.key(config.toString());
     }
 }

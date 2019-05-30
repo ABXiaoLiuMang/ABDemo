@@ -503,9 +503,7 @@ public class Request<T> {
      *
      */
     void destroy() {
-        if (requestBuilder.isRemoveCallback) {
-            callback = null;
-        }
+        callback = null;
     }
 
     /**

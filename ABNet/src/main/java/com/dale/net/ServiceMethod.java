@@ -16,13 +16,11 @@ import java.lang.reflect.Type;
 final class ServiceMethod<R, T> {
     final String httpMethod;
     final String relativeUrl;
-    private final Type responseType;
     final RequestAdapter<R, T> requestAdapter;
     final AbstractParameterHandler<?>[] mParameterHandlers;
 
     private ServiceMethod(Builder<R, T> builder) {
         relativeUrl = builder.relativeUrl;
-        responseType = builder.responseType;
         httpMethod = builder.httpMethod;
         requestAdapter = builder.requestAdapter;
         mParameterHandlers = builder.mParameterHandlers;
