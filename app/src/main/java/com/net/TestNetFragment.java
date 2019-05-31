@@ -8,13 +8,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.apkfuns.logutils.LogUtils;
+import com.cn.common.ui.AbstractTabFragment;
 import com.cn.common.ui.BaseActivity;
 import com.cn.common.ui.BaseFragment;
+import com.cn.common.view.ABToast;
 import com.dale.demo.R;
 import com.dale.net.ABNet;
 import com.dale.net.download.DownloadCallback;
 import com.net.p.TestNetContract;
 import com.net.p.TestNetPresenter;
+import com.tab.MainActivity;
 
 import java.io.File;
 
@@ -23,7 +26,7 @@ import java.io.File;
  * create on 2019/5/20
  * description:
  */
-public class TestNetFragment extends BaseFragment<TestNetPresenter> implements TestNetContract.IBindView {
+public class TestNetFragment extends AbstractTabFragment<TestNetPresenter> implements TestNetContract.IBindView {
 
     String [] arr = new String[]{"https://apitest.phptestit.com/CPTEST/","https://www.soarg999.com/ZZCP/","https://www.soarg999.com/CP57/","https://www.soarg999.com/FCCP/"};
 
@@ -48,6 +51,9 @@ public class TestNetFragment extends BaseFragment<TestNetPresenter> implements T
 
     @Override
     protected void initViewsAndEvents() {
+
+        ((MainActivity)getActivity()).test();
+
         tv_result = rootView.findViewById(R.id.tv_result);
           progressBar = rootView.findViewById(R.id.progressBar);
         rootView.findViewById(R.id.btn_postUrl).setOnClickListener(new View.OnClickListener() {

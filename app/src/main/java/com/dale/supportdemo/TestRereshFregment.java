@@ -11,6 +11,7 @@ import com.chad.baserecyclerviewadapterhelper.adapter.TestAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.cn.common.ui.ABRefreshBaseFragment;
+import com.cn.common.ui.AbstractRefreshTabFragment;
 import com.cn.common.view.ABToast;
 import com.dale.demo.R;
 import com.dale.supportdemo.p.TestContract;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
  * create on 2019/5/17
  * description:
  */
-public class TestRereshFregment extends ABRefreshBaseFragment<String, TestPresenter> implements TestContract.IBindView {
+public class TestRereshFregment extends AbstractRefreshTabFragment<String, TestPresenter> implements TestContract.IBindView {
 
 
     public static TestRereshFregment newInstance() {

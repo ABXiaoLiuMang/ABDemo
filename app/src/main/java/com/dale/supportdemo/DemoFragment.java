@@ -2,6 +2,7 @@ package com.dale.supportdemo;
 
 import android.view.View;
 
+import com.cn.common.ui.AbstractTabFragment;
 import com.cn.common.ui.BaseFragment;
 import com.cn.common.util.ABConfig;
 import com.dale.demo.R;
@@ -12,7 +13,7 @@ import com.dale.supportdemo.p.TestContract;
  * 文件描述:中国刑侦一号案,惊天铁案
  * 作者Dale:2019/4/28
  */
-public class DemoFragment extends BaseFragment<DemoPresenter> implements TestContract.IBindView{
+public class DemoFragment extends AbstractTabFragment<DemoPresenter> implements TestContract.IBindView{
 
     @Override
     protected int getLayoutId() {
