@@ -17,14 +17,12 @@ import com.cn.common.ui.R;
 
 public class ABProgressDialog extends Dialog {
 
-    TextView tv_load;
     View _view;
 
     public ABProgressDialog(Context context){
         super(context, R.style.MyDialogStyle);
         _view = LayoutInflater.from(context).inflate(
                 R.layout.load_dialog, null);
-        tv_load = _view.findViewById(R.id.tv_load);
     }
 
     @Override
@@ -34,15 +32,6 @@ public class ABProgressDialog extends Dialog {
         setCancelable(true);
         setCanceledOnTouchOutside(false);
         setContentView(_view);
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.width = WindowManager.LayoutParams.WRAP_CONTENT;
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        getWindow().setAttributes(params);
-    }
-
-    public ABProgressDialog setTextProgress(CharSequence msg) {
-        tv_load.setText(msg);
-        return this;
     }
 
 }

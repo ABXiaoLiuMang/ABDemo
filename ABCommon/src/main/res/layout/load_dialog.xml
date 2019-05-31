@@ -1,36 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:background="@android:color/transparent"
-    >
+    android:background="@drawable/toast_bg"
+    android:elevation="@dimen/dp_10"
+    android:gravity="center"
+    android:padding="20dp">
 
-    <LinearLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:minHeight="80dp"
-        android:minWidth="80dp"
-        android:background="@drawable/toast_bg"
-        android:orientation="vertical">
-
-        <ProgressBar
-            android:id="@+id/pb_load"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_horizontal"
-            android:indeterminateDrawable="@drawable/progress_loading_bg" />
-
-        <TextView
-            android:id="@+id/tv_load"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="正在加载..."
-            android:textColor="@color/white"
-            android:textSize="13sp" />
-    </LinearLayout>
-</RelativeLayout>
+    <ProgressBar
+        android:id="@+id/pb_load"
+        android:layout_width="@dimen/dp_23"
+        android:layout_height="@dimen/dp_23"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/progress_loading_bg" />
+</LinearLayout>

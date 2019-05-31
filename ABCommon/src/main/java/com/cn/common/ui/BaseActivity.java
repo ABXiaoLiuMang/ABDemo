@@ -117,11 +117,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends SupportActiv
         progressDialog.show();
     }
 
-    protected void showProgressDialog(String string) {
-        progressDialog = new ABProgressDialog(mContext).setTextProgress(string);
-        progressDialog.show();
-    }
-
     protected void dismissProgressDialog() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();

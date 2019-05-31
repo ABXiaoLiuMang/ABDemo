@@ -22,7 +22,7 @@ public class DemoFragment extends AbstractTabFragment<DemoPresenter> implements 
 
     @Override
     protected void initViewsAndEvents() {
-        showProgressDialog(bundle.getString(ABConfig.KEY_TEXT));
+        showProgressDialog();
 //        setBackActivity(true);
         rootView.findViewById(R.id.btn_demo).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +37,6 @@ public class DemoFragment extends AbstractTabFragment<DemoPresenter> implements 
     public void getBindTextVlaue(String text) {
 
 //        goActivityFragment(TestRereshFregment.class);
-        dismissProgressDialog();
+//        dismissProgressDialog();
     }
 }

@@ -16,4 +16,6 @@
 
     <color name="item_listView_hold_bg">#f1f1f1</color>
     <color name="item_listView_normal_bg">@color/white</color>
+
+    <color name="toast_bg">#BB101111</color>
 </resources>
