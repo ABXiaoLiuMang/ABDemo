@@ -93,7 +93,8 @@ public class MyApplication extends ABApplication {
 
         if (BuildConfig.DEBUG) {
             Fragmentation.builder()
-                    .stackViewMode(Fragmentation.BUBBLE)
+                    .stackViewMode(Fragmentation.SHAKE)
+//                    .stackViewMode(Fragmentation.BUBBLE)
                     .debug(true)
                     .install();
         }
