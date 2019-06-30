@@ -1,1 +1,1 @@
-include ':app', ':ABView', ':ABBaseAdapter', ':ABRefrshView', ':ABSupport', ':ABZxing', ':ABCommon', ':ABNet', ':Design', ':imagepicker', ':photoview'
+include ':app', ':ABView', ':ABBaseAdapter', ':ABRefrshView', ':ABSupport', ':ABZxing', ':ABCommon', ':ABNet', ':Design', ':photoview'

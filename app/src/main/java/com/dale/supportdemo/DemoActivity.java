@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
 import com.apkfuns.logutils.LogUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.cn.common.ui.BaseActivity;
 import com.cn.common.util.ExitUtils;
 import com.cn.common.view.ABToast;
@@ -35,6 +36,7 @@ public class DemoActivity extends BaseActivity {
 //        });
 //
 //        ((Button) findViewById(R.id.btn_demo)).setText("DemoActivity");
+        BaseQuickAdapter baseQuickAdapter;
         loadRootFragment(R.id.root_layout,new DemoFragment() );
 
 

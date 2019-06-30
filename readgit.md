@@ -1,4 +1,5 @@
 csdn账号：woaiqin2004
+qq：2814373873 admin123456
 
 keytool -list -printcert -jarfile
 
@@ -43,40 +44,14 @@ git remote prune origin #删除远程已经删除过的分支
 
 git remote -v 查看远程仓库地址
 
-yabo-bugly :3468221313    baibaidu1
-
-https://www.cnblogs.com/meitian/p/4997310.html  fiddler
-13608079349
-电话号码：13187474386  http://172.16.8.12/Android-Project/Yabo/SportApp
-电话号码：9152866347
-telegram账号：9152866347
-gmail: dale120160528@gmail.com
-小幺鸡:http://103.41.124.222:8080/dashboard  邮箱登录：dale1@yabotiyu.net
-git:http://45.118.250.116:90 用户名：dale 邮箱：dale1@yabotiyu.net  (js.Dale)
-git2:http://172.16.8.12  公司邮箱登录
-UI获取地址(摹客):https://www.1888yabo.com
-
-JIRA: http://jira.hnxmny.com:8080
-Confluence: http://jira.hnxmny.com:8090/
-
-http://jira.hnxmny.com:8090/pages/viewpage.action?pageId=17533698 开发过程问题
-
-http://jira.hnxmny.com:8080/secure/BrowseProjects.jspa?selectedCategory=all （用户名dale1,密码：Abc_123456）
-http://jira.hnxmny.com:8090/pages/viewpage.action?pageId=16285755 （框架使用文档）
-http://jira.hnxmny.com:8090/pages/viewpage.action?pageId=16285884  （接口文档）
-https://office.itcom888.com/user.php?mod=login 内推网址，用户名：dale,密码123456
-
-http://jira.hnxmny.com:8080/browse/YABO-1935?filter=-1（bug）
-
+https://www.draw.io/  画图软件
 
 2814373873  13608079349
 https://zzcp02.com/#/home
 
-
-聊天工具域名  chat.itcom888.com
-登录时候输入用户名   dale默认密码123456（务必更改）
-https://rocket.chat/install自行下载；
-
+获取应用签名
+keytool -list -v -keystore C:\Users\Dell\Desktop\release.keystore.jks
+android签名 ->SHA256就是
 
 http://api.hou2008.com/api/v1/wap/location 地理位置
 

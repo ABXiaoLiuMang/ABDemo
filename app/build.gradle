@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'com.android.databinding'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 def customizeConfig = rootProject.ext.android //android配置
 def rootDependencies = rootProject.ext.dependencies //库依赖
@@ -98,6 +99,17 @@ android {
         abortOnError false //  true--错误发生后停止gradle构建
         ignoreWarnings true //只报告error
     }
+
+
+    greendao {
+        schemaVersion 1 //数据库版本号
+        daoPackage 'com.dale.demo.db'
+// 设置DaoMaster、DaoSession、Dao 包名
+        targetGenDir 'src.main.java'//设置DaoMaster、DaoSession、Dao目录,请注意，这里路径用.不要用/
+        generateTests false //设置为true以自动生成单元测试。
+        targetGenDirTests 'src/main/java' //应存储生成的单元测试的基本目录。默认为 src / androidTest / java。
+    }
+
 }
 
 dependencies {
@@ -160,8 +172,11 @@ dependencies {
     implementation project(path: ':ABView')
     implementation project(path: ':ABSupport')
     implementation project(path: ':ABCommon')
-    implementation project(path: ':imagepicker')
+//    implementation project(path: ':imagepicker')
     implementation project(path: ':ABNet')
+
+
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
 
 }
 

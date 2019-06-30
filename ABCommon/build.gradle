@@ -57,7 +57,7 @@ publish {
     userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
     groupId = 'com.dale.base'  //jcenter上的路径
     artifactId = 'ABCommon'  //项目名称
-    publishVersion = '1.0.0'    //版本号
+    publishVersion = '1.0.2'    //版本号
     desc = 'ABCommon'
     website = 'https://github.com/ABXiaoLiuMang/ABDemo/tree/master/ABCommon'
     licences = 'Apache-2.0'

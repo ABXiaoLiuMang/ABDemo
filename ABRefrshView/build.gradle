@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
 def customizeConfig = rootProject.ext.android //android配置
 def rootDependencies = rootProject.ext.dependencies //库依赖
@@ -41,13 +41,13 @@ dependencies {
     compileOnly rootDependencies["design"]
 }
 
-publish {
-    userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
-    groupId = 'com.scwang.smartrefresh'  //jcenter上的路径
-    artifactId = 'ABRefrshView'  //项目名称
-    publishVersion = '1.0.0'    //版本号
-    desc = 'ABRefrshView'
-    website = 'https://github.com/ABXiaoLiuMang/ABDemo/tree/master/ABRefrshView'
-    licences = 'Apache-2.0'
-}
+//publish {
+//    userOrg = 'daleyangbo'   //组织名称 organization 建议写用户名（bintray.com用户名）
+//    groupId = 'com.scwang.smartrefresh'  //jcenter上的路径
+//    artifactId = 'ABRefrshView'  //项目名称
+//    publishVersion = '1.0.0'    //版本号
+//    desc = 'ABRefrshView'
+//    website = 'https://github.com/ABXiaoLiuMang/ABDemo/tree/master/ABRefrshView'
+//    licences = 'Apache-2.0'
+//}
 
