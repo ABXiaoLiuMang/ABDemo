@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.ty.ml.project:filesSync:1.0.1@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/db1fd0a2e75161b852118b0cc6e85dd9/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/db1fd0a2e75161b852118b0cc6e85dd9/jars/libs/diff.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/db1fd0a2e75161b852118b0cc6e85dd9/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/db1fd0a2e75161b852118b0cc6e85dd9/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/db1fd0a2e75161b852118b0cc6e85dd9/jars/libs/commons-codec-10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ty.ml.project/filesSync/1.0.1/85af653450d0272e02ea80cae4a2c91a63400e70/filesSync-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

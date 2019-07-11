@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ABBaseAdapter/ABBaseAdapter.iml" filepath="$PROJECT_DIR$/../ABBaseAdapter/ABBaseAdapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ABCommon/ABCommon.iml" filepath="$PROJECT_DIR$/../ABCommon/ABCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ABDemo.iml" filepath="$PROJECT_DIR$/../ABDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ABNet/ABNet.iml" filepath="$PROJECT_DIR$/../ABNet/ABNet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ABRefrshView/ABRefrshView.iml" filepath="$PROJECT_DIR$/../ABRefrshView/ABRefrshView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ABSupport/ABSupport.iml" filepath="$PROJECT_DIR$/../ABSupport/ABSupport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ABView.iml" filepath="$PROJECT_DIR$/ABView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ABZxing/ABZxing.iml" filepath="$PROJECT_DIR$/../ABZxing/ABZxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Design/Design.iml" filepath="$PROJECT_DIR$/../Design/Design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../app/app.iml" filepath="$PROJECT_DIR$/../app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../photoview/photoview.iml" filepath="$PROJECT_DIR$/../photoview/photoview.iml" />
+    </modules>
+  </component>
+</project>

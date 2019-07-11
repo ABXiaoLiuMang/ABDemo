@@ -159,6 +159,8 @@ dependencies {
     implementation rootDependencies["zxing"]
     implementation rootDependencies["logutils"]
 
+    implementation 'com.ty.ml.project:filesSync:1.0.1'
+
    // 自己
 //    implementation rootDependencies["ABYoKeyword"]
     implementation rootDependencies["ABBaseAdapter"]

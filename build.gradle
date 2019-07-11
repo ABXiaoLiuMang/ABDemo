@@ -32,6 +32,8 @@ allprojects {
         maven { url 'https://jitpack.io' }//添加仓库
 //        maven {url "https://raw.githubusercontent.com/ABXiaoLiuMang/mylibrary/master"}
         maven { url 'https://dl.bintray.com/daleyangbo/maven' }//添加仓库
+
+        maven { url "http://172.16.8.15:8081/repository/TY-ML/" }
     }
 }
 

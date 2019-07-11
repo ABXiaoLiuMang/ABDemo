@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tinkerpatch.tinker:bsdiff-util:1.9.2@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tinkerpatch.tinker/bsdiff-util/1.9.2/36e7e13fd3bf50c108bb304731231a90572a3db9/bsdiff-util-1.9.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tinkerpatch.tinker/bsdiff-util/1.9.2/a6a4843b7639e371e4417c100343e38f6fb3a683/bsdiff-util-1.9.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.zxing:ABZxing:1.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7bf20c3340f782c852b29cbdd13eb693/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7bf20c3340f782c852b29cbdd13eb693/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zxing/ABZxing/1.0.0/aa95909450113ea0afce8ea166c3e36c6d1b7c15/ABZxing-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
